@@ -1,0 +1,220 @@
+[
+  {
+    "id": "hb-2520-child-support-guidelines-2025",
+    "title": "HB 2520: Updated Child Support Guidelines Effective July 1, 2025",
+    "summary": "Virginia's child support guidelines have been updated per Chapter 702, effective July 1, 2025. The new schedule adjusts the basic child support obligation amounts across all income levels from $0 to $42,500 monthly gross income, reflecting updated costs of raising children in the Commonwealth.",
+    "category": "virginia_code",
+    "tags": ["child_support", "financial"],
+    "date": "2025-07-01",
+    "citation": "Va. Code Ann. \u00a7 20-108.2",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6/section20-108.2/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "sb-1234-spousal-support-duration",
+    "title": "Spousal Support Duration and Modification Standards Updated",
+    "summary": "Recent amendments clarify the factors courts must consider when determining the duration of spousal support awards, including the length of the marriage, earning capacity of each party, and contributions to the marriage. The changes aim to provide more predictable outcomes for practitioners.",
+    "category": "virginia_code",
+    "tags": ["spousal_support", "divorce"],
+    "date": "2025-03-15",
+    "citation": "Va. Code Ann. \u00a7 20-107.1",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6/section20-107.1/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "coa-custody-relocation-2025",
+    "title": "Virginia Court of Appeals: Relocation Standard Clarified in Custody Cases",
+    "summary": "The Virginia Court of Appeals issued a significant ruling clarifying the burden of proof in custodial parent relocation cases. The court held that the relocating parent bears the burden of demonstrating the move serves the child's best interests, with particular emphasis on maintaining the non-custodial parent's relationship.",
+    "category": "case_law",
+    "tags": ["custody", "relocation", "parenting_time"],
+    "date": "2025-02-20",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://www.vacourts.gov/opinions/opncavtx.html",
+    "sourceName": "Virginia Courts"
+  },
+  {
+    "id": "scotus-parental-rights-2025",
+    "title": "SCOTUS Grants Cert on Interstate Custody Jurisdiction Under UCCJEA",
+    "summary": "The U.S. Supreme Court has agreed to hear a case involving conflicting state court orders under the Uniform Child Custody Jurisdiction and Enforcement Act. The case could significantly impact how Virginia courts handle interstate custody disputes and enforcement of foreign custody orders.",
+    "category": "supreme_court_us",
+    "tags": ["custody", "child_welfare"],
+    "date": "2025-01-15",
+    "court": "U.S. Supreme Court",
+    "sourceUrl": "https://www.supremecourt.gov/",
+    "sourceName": "U.S. Supreme Court"
+  },
+  {
+    "id": "vsb-ethics-ai-family-law",
+    "title": "VSB Ethics Opinion: Use of AI Tools in Family Law Practice",
+    "summary": "The Virginia State Bar Standing Committee on Legal Ethics issued guidance on the use of artificial intelligence tools in family law practice. The opinion addresses duties of competence, supervision, confidentiality, and disclosure when using AI for document drafting, legal research, and client communications.",
+    "category": "ethics_opinion",
+    "tags": ["ethics", "ai_in_law", "competence", "confidentiality", "technology"],
+    "date": "2025-03-01",
+    "sourceUrl": "https://www.vsb.org/site/regulation/ethics-opinions",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "vsb-trust-account-requirements-2025",
+    "title": "VSB Updates IOLTA Trust Account Requirements for Family Law Practitioners",
+    "summary": "The Virginia State Bar has updated requirements for Interest on Lawyers' Trust Accounts (IOLTA), particularly affecting family law practitioners handling retainer fees and property settlement funds. New reporting requirements take effect for the 2025 fiscal year.",
+    "category": "vsb_update",
+    "tags": ["trust_accounts", "ethics", "fees"],
+    "date": "2025-02-01",
+    "sourceUrl": "https://www.vsb.org/",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "attorney-discipline-trust-account-2025",
+    "title": "Virginia Attorney Suspended for Trust Account Violations in Divorce Case",
+    "summary": "A Virginia family law attorney received a two-year suspension for commingling client funds in a high-asset divorce case. The disciplinary proceeding highlighted the importance of proper trust account management when handling equitable distribution settlements.",
+    "category": "attorney_discipline",
+    "tags": ["disciplinary", "trust_accounts", "divorce", "equitable_distribution"],
+    "date": "2025-01-28",
+    "sourceUrl": "https://www.vsb.org/site/regulation/disciplinary-actions",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "court-rules-efiling-family-2025",
+    "title": "Virginia Supreme Court Mandates E-Filing for All Family Law Cases",
+    "summary": "Beginning January 1, 2026, all Virginia circuit courts will require electronic filing for family law cases, including divorce, custody, and support matters. The rule change includes provisions for self-represented litigants and establishes uniform filing standards across all circuits.",
+    "category": "court_rules",
+    "tags": ["technology", "divorce", "custody", "child_support"],
+    "date": "2025-03-10",
+    "court": "Supreme Court of Virginia",
+    "sourceUrl": "https://www.vacourts.gov/courts/scv/rulesofcourt.html",
+    "sourceName": "Virginia Courts"
+  },
+  {
+    "id": "coparenting-app-study-2025",
+    "title": "Study: Co-Parenting Apps Reduce Post-Divorce Conflict in Virginia",
+    "summary": "A University of Virginia School of Law study found that families using court-approved co-parenting communication apps experienced 34% fewer modification motions and significantly reduced parental conflict. Several Virginia courts are now recommending these tools as part of custody orders.",
+    "category": "study",
+    "tags": ["coparenting", "custody", "technology", "parenting_time"],
+    "date": "2025-02-15",
+    "sourceUrl": "https://www.law.virginia.edu/academics/program/family-law-center",
+    "sourceName": "UVA School of Law"
+  },
+  {
+    "id": "trend-remote-hearings-family-2025",
+    "title": "Trend: Virginia Courts Expand Remote Hearing Options for Family Law",
+    "summary": "Multiple Virginia circuit courts have expanded the availability of remote hearings for uncontested divorces, support modifications, and preliminary custody matters. Practitioners report that remote options have improved access to justice, particularly in rural circuits.",
+    "category": "trend",
+    "tags": ["technology", "divorce", "child_support", "custody"],
+    "date": "2025-03-05",
+    "scope": "statewide",
+    "sourceUrl": "https://www.vba.org/",
+    "sourceName": "Virginia Bar Association"
+  },
+  {
+    "id": "equitable-distribution-cryptocurrency",
+    "title": "Virginia Court Addresses Cryptocurrency Valuation in Equitable Distribution",
+    "summary": "A Virginia circuit court issued a detailed opinion on the valuation and classification of cryptocurrency assets in divorce proceedings. The court established a framework for determining the date-of-valuation and addressing the volatility of digital assets during property division.",
+    "category": "case_law",
+    "tags": ["equitable_distribution", "property_division", "financial"],
+    "date": "2025-02-28",
+    "court": "Fairfax County Circuit Court",
+    "sourceUrl": "https://www.vacourts.gov/",
+    "sourceName": "Virginia Courts"
+  },
+  {
+    "id": "domestic-violence-protective-order-amendments",
+    "title": "Amendments to Virginia Protective Order Statutes Expand Coverage",
+    "summary": "Virginia has amended its protective order statutes to expand coverage for victims of domestic violence, including broader definitions of family abuse and extended duration options for permanent protective orders. The changes align Virginia with federal Violence Against Women Act requirements.",
+    "category": "virginia_code",
+    "tags": ["domestic_violence", "custody"],
+    "date": "2025-01-20",
+    "citation": "Va. Code Ann. \u00a7 16.1-279.1",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title16.1/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "guardian-ad-litem-training-2025",
+    "title": "New Training Requirements for Guardians Ad Litem in Custody Cases",
+    "summary": "Virginia has implemented enhanced training requirements for guardians ad litem appointed in custody and visitation cases. The new standards include mandatory continuing education on child development, domestic violence dynamics, and cultural competency.",
+    "category": "court_rules",
+    "tags": ["guardianship", "custody", "child_welfare"],
+    "date": "2025-03-12",
+    "court": "Supreme Court of Virginia",
+    "sourceUrl": "https://www.vacourts.gov/",
+    "sourceName": "Virginia Courts"
+  },
+  {
+    "id": "adoption-stepparent-streamlined-2025",
+    "title": "Virginia Streamlines Stepparent Adoption Process",
+    "summary": "New legislation simplifies the stepparent adoption process in Virginia by reducing the waiting period and allowing consent to be filed electronically. The changes address longstanding concerns about unnecessary delays in cases where the non-custodial parent has abandoned the child.",
+    "category": "virginia_code",
+    "tags": ["adoption", "child_welfare"],
+    "date": "2025-02-10",
+    "citation": "Va. Code Ann. \u00a7 63.2-1241",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title63.2/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "military-divorce-servicemembers-2025",
+    "title": "Virginia Updates Military Divorce Provisions for Service Members",
+    "summary": "Virginia has updated its military divorce provisions to better protect the rights of deployed service members and their families. The amendments address issues of jurisdiction, division of military pensions, and the impact of deployment on custody arrangements.",
+    "category": "virginia_code",
+    "tags": ["divorce", "property_division", "custody"],
+    "date": "2025-01-05",
+    "citation": "Va. Code Ann. \u00a7 20-97",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "vsb-advertising-social-media-2025",
+    "title": "VSB Issues Guidance on Social Media Advertising for Family Law Attorneys",
+    "summary": "The Virginia State Bar has issued updated guidance on social media advertising for family law attorneys, addressing testimonials, case results, and the use of AI-generated content in marketing materials. The guidance emphasizes transparency and compliance with existing advertising rules.",
+    "category": "vsb_update",
+    "tags": ["advertising", "ethics", "technology"],
+    "date": "2025-03-08",
+    "sourceUrl": "https://www.vsb.org/",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "mental-health-custody-evaluations-2025",
+    "title": "Study: Mental Health Evaluations in Virginia Custody Cases Show Bias",
+    "summary": "A comprehensive study examining custody evaluation practices across Virginia courts found significant inconsistencies in how mental health evaluations are conducted and weighted. Researchers recommend standardized evaluation protocols to reduce bias and improve outcomes for children.",
+    "category": "study",
+    "tags": ["mental_health", "custody", "child_welfare"],
+    "date": "2025-02-22",
+    "sourceUrl": "https://www.law.virginia.edu/",
+    "sourceName": "UVA School of Law"
+  },
+  {
+    "id": "collaborative-divorce-trend-2025",
+    "title": "Trend: Collaborative Divorce Practice Growing in Virginia",
+    "summary": "The collaborative divorce model continues to gain traction in Virginia, with the number of trained collaborative practitioners doubling over the past two years. Several Virginia circuits now offer collaborative practice as an alternative dispute resolution option in their family law dockets.",
+    "category": "trend",
+    "tags": ["divorce", "coparenting"],
+    "date": "2025-03-18",
+    "scope": "statewide",
+    "sourceUrl": "https://www.vba.org/",
+    "sourceName": "Virginia Bar Association"
+  },
+  {
+    "id": "news-grandparent-visitation-bill-2025",
+    "title": "Virginia Legislature Considers Expanded Grandparent Visitation Rights",
+    "summary": "A bipartisan bill in the Virginia General Assembly seeks to expand grandparent visitation rights in cases involving parental unfitness, death, or incarceration. The proposal has garnered support from child welfare advocates and AARP Virginia, though family law practitioners have raised constitutional concerns.",
+    "category": "news",
+    "tags": ["custody", "parenting_time", "child_welfare"],
+    "date": "2025-03-20",
+    "sourceUrl": "https://lis.virginia.gov/",
+    "sourceName": "Virginia Legislative Information System",
+    "blogCredit": "Virginia Family Law Blog|https://www.familylawva.com/"
+  },
+  {
+    "id": "ethics-conflict-dual-representation-2025",
+    "title": "VSB Ethics Opinion: Dual Representation in Uncontested Divorces",
+    "summary": "The Virginia State Bar has clarified its position on dual representation in uncontested divorce cases, reaffirming that an attorney may not represent both parties even when the divorce is amicable. The opinion provides guidance on proper referral practices and limited scope representation alternatives.",
+    "category": "ethics_opinion",
+    "tags": ["ethics", "conflicts", "divorce"],
+    "date": "2025-01-30",
+    "sourceUrl": "https://www.vsb.org/site/regulation/ethics-opinions",
+    "sourceName": "Virginia State Bar"
+  }
+]
