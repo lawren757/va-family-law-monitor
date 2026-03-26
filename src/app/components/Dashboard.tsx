@@ -30,8 +30,11 @@ export default function Dashboard() {
 
     try {
       const res = await fetch(`/api/updates?${params.toString()}`);
-      const json = await res.json();
+      const json: UpdatesResponse = await res.json();
       setData(json);
+      if (json.page !== page) {
+        setPage(json.page);
+      }
     } catch (err) {
       console.error("Failed to fetch updates:", err);
     } finally {
@@ -177,7 +180,7 @@ export default function Dashboard() {
             ) : data && data.items.length > 0 ? (
               <div className="space-y-3">
                 <p className="text-[11px] text-muted-foreground">
-                  Showing {(data.page - 1) * 20 + 1}–{Math.min(data.page * 20, data.filteredTotal)} of {data.filteredTotal} update{data.filteredTotal !== 1 ? "s" : ""}
+                  Showing {(data.page - 1) * data.pageSize + 1}–{Math.min(data.page * data.pageSize, data.filteredTotal)} of {data.filteredTotal} update{data.filteredTotal !== 1 ? "s" : ""}
                 </p>
                 {data.items.map((item) => (
                   <UpdateCard key={item.id} item={item} onTagClick={handleTagClick} />

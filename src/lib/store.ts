@@ -66,6 +66,7 @@ export async function getUpdates(
     total,
     filteredTotal,
     page: safePage,
+    pageSize: PAGE_SIZE,
     totalPages,
     categories: allCategories,
     tags: allTags,
