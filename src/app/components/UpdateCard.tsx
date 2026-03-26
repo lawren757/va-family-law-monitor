@@ -102,9 +102,9 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
           </div>
 
           {/* Title */}
-          <h3 className="text-[13px] font-semibold leading-snug mb-1.5">
+          <h2 className="text-[13px] font-semibold leading-snug mb-1.5">
             {item.title}
-          </h3>
+          </h2>
 
           {/* Summary */}
           <p className={`text-[12.5px] leading-relaxed text-muted-foreground ${expanded ? "" : "line-clamp-3"}`}>
@@ -125,7 +125,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
 
           {/* Citation */}
           {item.citation && (
-            <p className="text-[11px] text-muted-foreground/70 mt-1.5 font-mono">
+            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5 font-mono">
               {item.citation}
             </p>
           )}
@@ -164,12 +164,12 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] text-muted-foreground/60 hover:text-muted-foreground hover:underline"
+                  className="text-[10px] text-slate-500 hover:text-foreground dark:text-slate-400 dark:hover:text-slate-200 hover:underline"
                 >
                   via {name}
                 </a>
               ) : (
-                <span className="text-[10px] text-muted-foreground/60">via {name}</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400">via {name}</span>
               );
             })()}
             <button

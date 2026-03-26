@@ -97,6 +97,7 @@ export default function Dashboard() {
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="md:hidden p-1.5 rounded-md hover:bg-muted"
+            aria-label="Toggle sidebar"
           >
             <PanelLeft className="w-4 h-4" />
           </button>
@@ -112,7 +113,7 @@ export default function Dashboard() {
               <h1 className="text-xl font-bold tracking-tight">
                 Virginia Family Law Monitor
               </h1>
-              <p className="text-[13px] text-muted-foreground mt-1">
+              <p className="text-[13px] text-slate-600 dark:text-muted-foreground mt-1">
                 Code updates, case law, ethics opinions, bar news, and practice trends
               </p>
             </div>
@@ -128,7 +129,7 @@ export default function Dashboard() {
               {activeFilterCount > 0 && (
                 <button
                   onClick={clearFilters}
-                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
+                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
                 >
                   <X className="w-3 h-3" />
                   Clear filters
@@ -137,7 +138,7 @@ export default function Dashboard() {
               {category !== "all" && (
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
                   {CATEGORY_META[category as keyof typeof CATEGORY_META]?.label || category}
-                  <button onClick={() => setCategory("all")} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setCategory("all")} aria-label="Remove category filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>
@@ -146,7 +147,7 @@ export default function Dashboard() {
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
                   <Hash className="w-2.5 h-2.5" />
                   {TAG_LABELS[tag] || tag}
-                  <button onClick={() => setTag(null)} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setTag(null)} aria-label="Remove tag filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>
@@ -154,7 +155,7 @@ export default function Dashboard() {
               {search && (
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
                   &ldquo;{search}&rdquo;
-                  <button onClick={() => setSearch("")} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setSearch("")} aria-label="Remove search filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>
@@ -189,7 +190,7 @@ export default function Dashboard() {
               </div>
             ) : data && data.items.length > 0 ? (
               <div className="space-y-3">
-                <p className="text-[11px] text-muted-foreground">
+                <p className="text-[11px] text-slate-600 dark:text-muted-foreground">
                   Showing {(data.page - 1) * data.pageSize + 1}–{Math.min(data.page * data.pageSize, data.filteredTotal)} of {data.filteredTotal} update{data.filteredTotal !== 1 ? "s" : ""}
                 </p>
                 {data.items.map((item) => (
@@ -226,7 +227,7 @@ export default function Dashboard() {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-3">
                   <Search className="w-5 h-5 text-muted-foreground" />
                 </div>
-                <h3 className="text-sm font-medium mb-1">No results found</h3>
+                <h2 className="text-sm font-medium mb-1">No results found</h2>
                 <p className="text-[12px] text-muted-foreground mb-3">
                   Try adjusting your filters or search terms
                 </p>

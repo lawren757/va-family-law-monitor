@@ -24,7 +24,7 @@ export default function TagFilter({ tags, activeTag, onTagClick }: TagFilterProp
           className="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border border-slate-300 bg-card hover:bg-primary/5 hover:border-primary/30 text-slate-600 hover:text-foreground dark:border-border/60 dark:text-muted-foreground transition-colors"
         >
           {TAG_LABELS[tag] || tag.replace(/_/g, " ")}
-          <span className="text-[9px] opacity-50">{count}</span>
+          <span className="text-[9px] text-slate-500 dark:text-slate-400">{count}</span>
         </button>
       ))}
     </div>
