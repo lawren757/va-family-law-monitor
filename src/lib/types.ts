@@ -28,6 +28,9 @@ export interface LawUpdate {
 export interface UpdatesResponse {
   items: LawUpdate[];
   total: number;
+  filteredTotal: number;
+  page: number;
+  totalPages: number;
   categories: Record<string, number>;
   tags: Record<string, number>;
 }

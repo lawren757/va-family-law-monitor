@@ -4,10 +4,13 @@ import type { LawUpdate, UpdatesResponse } from "./types";
 
 const DATA_PATH = path.join(process.cwd(), "data", "updates.json");
 
+const PAGE_SIZE = 20;
+
 export async function getUpdates(
   category?: string,
   tag?: string | null,
-  search?: string
+  search?: string,
+  page: number = 1
 ): Promise<UpdatesResponse> {
   let items: LawUpdate[] = [];
 
@@ -52,7 +55,21 @@ export async function getUpdates(
     );
   }
 
-  return { items, total, categories: allCategories, tags: allTags };
+  const filteredTotal = items.length;
+  const totalPages = Math.max(1, Math.ceil(filteredTotal / PAGE_SIZE));
+  const safePage = Math.max(1, Math.min(page, totalPages));
+  const start = (safePage - 1) * PAGE_SIZE;
+  const paginatedItems = items.slice(start, start + PAGE_SIZE);
+
+  return {
+    items: paginatedItems,
+    total,
+    filteredTotal,
+    page: safePage,
+    totalPages,
+    categories: allCategories,
+    tags: allTags,
+  };
 }
 
 export async function saveUpdates(updates: LawUpdate[]): Promise<void> {

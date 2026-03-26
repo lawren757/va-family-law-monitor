@@ -9,12 +9,13 @@ import SearchBar from "./SearchBar";
 import TagFilter from "./TagFilter";
 import UpdateCard from "./UpdateCard";
 import ThemeToggle from "./ThemeToggle";
-import { PanelLeft, Search, X, Hash } from "lucide-react";
+import { PanelLeft, Search, X, Hash, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Dashboard() {
   const [category, setCategory] = useState("all");
   const [tag, setTag] = useState<string | null>(null);
   const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
   const [data, setData] = useState<UpdatesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,6 +26,7 @@ export default function Dashboard() {
     if (category !== "all") params.set("category", category);
     if (tag) params.set("tag", tag);
     if (search) params.set("search", search);
+    params.set("page", String(page));
 
     try {
       const res = await fetch(`/api/updates?${params.toString()}`);
@@ -35,7 +37,7 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, [category, tag, search]);
+  }, [category, tag, search, page]);
 
   useEffect(() => {
     fetchData();
@@ -45,15 +47,23 @@ export default function Dashboard() {
     setCategory("all");
     setTag(null);
     setSearch("");
+    setPage(1);
   };
 
   const handleCategoryChange = (cat: string) => {
     setCategory(cat);
     setTag(null);
+    setPage(1);
   };
 
   const handleTagClick = (t: string) => {
     setTag(tag === t ? null : t);
+    setPage(1);
+  };
+
+  const handleSearch = (q: string) => {
+    setSearch(q);
+    setPage(1);
   };
 
   const activeFilterCount =
@@ -98,7 +108,7 @@ export default function Dashboard() {
             {!loading && data && <StatsBar data={data} />}
 
             {/* Search */}
-            <SearchBar onSearch={setSearch} currentSearch={search} />
+            <SearchBar onSearch={handleSearch} currentSearch={search} />
 
             {/* Active filters */}
             <div className="flex flex-wrap items-center gap-2">
@@ -167,11 +177,36 @@ export default function Dashboard() {
             ) : data && data.items.length > 0 ? (
               <div className="space-y-3">
                 <p className="text-[11px] text-muted-foreground">
-                  Showing {data.items.length} update{data.items.length !== 1 ? "s" : ""}
+                  Showing {(data.page - 1) * 20 + 1}–{Math.min(data.page * 20, data.filteredTotal)} of {data.filteredTotal} update{data.filteredTotal !== 1 ? "s" : ""}
                 </p>
                 {data.items.map((item) => (
                   <UpdateCard key={item.id} item={item} onTagClick={handleTagClick} />
                 ))}
+
+                {/* Pagination */}
+                {data.totalPages > 1 && (
+                  <div className="flex items-center justify-center gap-2 pt-4 pb-2">
+                    <button
+                      onClick={() => setPage((p) => Math.max(1, p - 1))}
+                      disabled={data.page <= 1}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 text-[12px] border border-border rounded-md hover:bg-muted transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      <ChevronLeft className="w-3.5 h-3.5" />
+                      Previous
+                    </button>
+                    <span className="text-[12px] text-muted-foreground px-2">
+                      Page {data.page} of {data.totalPages}
+                    </span>
+                    <button
+                      onClick={() => setPage((p) => Math.min(data.totalPages, p + 1))}
+                      disabled={data.page >= data.totalPages}
+                      className="inline-flex items-center gap-1 px-3 py-1.5 text-[12px] border border-border rounded-md hover:bg-muted transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                    >
+                      Next
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="text-center py-16">

@@ -4,7 +4,7 @@ import { useState } from "react";
 import {
   Scale, BookOpen, Landmark, Gavel, Shield, Building2,
   AlertTriangle, Newspaper, BarChart3, TrendingUp,
-  Calendar, ChevronDown, ChevronUp, ExternalLink, Hash,
+  Calendar, ChevronDown, ChevronUp, ExternalLink, Hash, Share2,
 } from "lucide-react";
 import type { LawUpdate } from "@/lib/types";
 import { CATEGORY_META, TAG_LABELS } from "@/lib/types";
@@ -31,8 +31,37 @@ function formatDate(dateStr: string): string {
 
 export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
   const [expanded, setExpanded] = useState(false);
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
   const meta = CATEGORY_META[item.category] || CATEGORY_META.all;
   const Icon = ICON_MAP[meta.icon] || Gavel;
+
+  const handleShare = async () => {
+    const shareText = `${item.title}\n\n${item.summary}${item.citation ? `\n\nCitation: ${item.citation}` : ""}\n\nSource: ${item.sourceUrl}`;
+
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: item.title,
+          text: shareText,
+          url: item.sourceUrl,
+        });
+      } catch (err) {
+        // User cancelled or share failed — ignore AbortError
+        if (err instanceof Error && err.name !== "AbortError") {
+          console.error("Share failed:", err);
+        }
+      }
+    } else {
+      // Fallback: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(shareText);
+        setShareStatus("copied");
+        setTimeout(() => setShareStatus("idle"), 2000);
+      } catch {
+        console.error("Failed to copy to clipboard");
+      }
+    }
+  };
 
   return (
     <div className="p-4 rounded-xl bg-card border border-border/60 shadow-sm hover:shadow-md transition-all duration-200">
@@ -107,7 +136,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
             ))}
           </div>
 
-          {/* Source link */}
+          {/* Source link & share */}
           <div className="flex items-center gap-3 mt-2.5 pt-2 border-t border-border/40">
             <a
               href={item.sourceUrl}
@@ -135,6 +164,14 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
                 <span className="text-[10px] text-muted-foreground/60">via {name}</span>
               );
             })()}
+            <button
+              onClick={handleShare}
+              aria-label="Share this update"
+              className="ml-auto inline-flex items-center gap-1 text-[11px] text-muted-foreground hover:text-primary transition-colors p-1 rounded-md hover:bg-muted"
+            >
+              <Share2 className="w-3.5 h-3.5" />
+              {shareStatus === "copied" ? "Copied!" : "Share"}
+            </button>
           </div>
         </div>
       </div>
