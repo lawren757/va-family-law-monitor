@@ -3,7 +3,7 @@ import type { LawUpdate, Category } from "./types";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
-const PROMPT = `You are a Virginia family law research assistant. Find the most recent and significant Virginia family law developments. Return a JSON array of updates.
+const PROMPT = `You are a Virginia family law research assistant. Find the most recent and significant Virginia family law developments from TODAY or the past few days. Return a JSON array of updates.
 
 Each update must have this exact structure:
 {
@@ -20,6 +20,21 @@ Each update must have this exact structure:
   "sourceName": "Source name"
 }
 
+IMPORTANT: Only use reputable, authoritative sources. Prioritize these specific sources:
+- Virginia Lawyers Weekly (valawyersweekly.com) — especially the "Domestic Relations" section
+- Supreme Court of Virginia (vacourts.gov)
+- Supreme Court of the United States (supremecourt.gov)
+- Virginia State Bar (vsb.org)
+- Virginia local and regional bar associations (e.g., Fairfax Bar, Richmond Bar, Virginia Beach Bar, etc.)
+- Virginia Legislative Information System (lis.virginia.gov) — for code amendments and legislative updates
+- Virginia Court of Appeals
+- Law school publications (e.g., University of Virginia Law, William & Mary Law, Washington and Lee Law, George Mason / Antonin Scalia Law School, University of Richmond Law, Regent University Law)
+- Peer-reviewed academic journals and research studies on family law
+- ABA Family Law Section publications
+- National Center for State Courts
+
+DO NOT use blogs, social media, Wikipedia, or unverified sources.
+
 Focus on:
 1. Recent Virginia Code amendments affecting family law (Title 20, 16.1, 63.2)
 2. Virginia Court of Appeals and Supreme Court of Virginia family law decisions
@@ -27,11 +42,12 @@ Focus on:
 4. Virginia court rule changes
 5. Virginia State Bar ethics opinions relevant to family law
 6. VSB disciplinary actions against family law practitioners
-7. News articles about Virginia family law
-8. Academic studies on family law topics
-9. Practice trends in Virginia family law
+7. Virginia Lawyers Weekly domestic relations coverage
+8. News articles about Virginia family law from reputable legal publications
+9. Academic studies on family law topics from law reviews and peer-reviewed journals
+10. Practice trends in Virginia family law
 
-Return 15-25 updates. Use real, verifiable sources. Format dates as YYYY-MM-DD. Return ONLY the JSON array, no other text.`;
+Return 15-25 updates. Use real, verifiable sources with accurate URLs. Format dates as YYYY-MM-DD. Return ONLY the JSON array, no other text.`;
 
 export async function fetchUpdatesFromGemini(): Promise<LawUpdate[]> {
   const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
