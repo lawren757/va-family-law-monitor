@@ -41,6 +41,10 @@ export default function Sidebar({ category, onCategoryChange, isOpen, onToggle }
         <div
           className="fixed inset-0 z-40 bg-black/60 md:hidden"
           onClick={onToggle}
+          role="button"
+          aria-label="Close sidebar"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") onToggle(); }}
         />
       )}
 

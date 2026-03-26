@@ -86,6 +86,7 @@ export default function Dashboard() {
         <header className="flex items-center gap-2 px-4 py-2 border-b border-border bg-card/80 backdrop-blur-sm shrink-0">
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label="Toggle sidebar"
             className="md:hidden p-1.5 rounded-md hover:bg-muted"
           >
             <PanelLeft className="w-4 h-4" />
@@ -127,16 +128,16 @@ export default function Dashboard() {
               {category !== "all" && (
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
                   {CATEGORY_META[category as keyof typeof CATEGORY_META]?.label || category}
-                  <button onClick={() => setCategory("all")} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setCategory("all")} aria-label="Remove category filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>
               )}
               {tag && (
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
-                  <Hash className="w-2.5 h-2.5" />
+                  <Hash className="w-2.5 h-2.5" aria-hidden="true" />
                   {TAG_LABELS[tag] || tag}
-                  <button onClick={() => setTag(null)} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setTag(null)} aria-label="Remove tag filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>
@@ -144,7 +145,7 @@ export default function Dashboard() {
               {search && (
                 <span className="inline-flex items-center gap-1 text-[11px] px-2 py-0.5 rounded-md bg-muted">
                   &ldquo;{search}&rdquo;
-                  <button onClick={() => setSearch("")} className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
+                  <button onClick={() => setSearch("")} aria-label="Remove search filter" className="ml-0.5 hover:bg-muted-foreground/20 rounded-full p-0.5">
                     <X className="w-2.5 h-2.5" />
                   </button>
                 </span>

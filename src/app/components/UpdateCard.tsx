@@ -95,7 +95,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
               </span>
             )}
             <span className="text-[11px] text-muted-foreground flex items-center gap-1 ml-auto shrink-0">
-              <Calendar className="w-3 h-3" />
+              <Calendar className="w-3 h-3" aria-hidden="true" />
               {formatDate(item.date)}
             </span>
           </div>
@@ -137,7 +137,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
                 onClick={() => onTagClick(tag)}
                 className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900 dark:bg-muted dark:hover:bg-muted/80 dark:text-muted-foreground dark:hover:text-foreground transition-colors"
               >
-                <Hash className="w-2.5 h-2.5" />
+                <Hash className="w-2.5 h-2.5" aria-hidden="true" />
                 {TAG_LABELS[tag] || tag.replace(/_/g, " ")}
               </button>
             ))}
@@ -151,7 +151,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-[11px] font-medium text-primary hover:underline"
             >
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3 h-3" aria-hidden="true" />
               {item.sourceName}
             </a>
             {item.blogCredit && (() => {
