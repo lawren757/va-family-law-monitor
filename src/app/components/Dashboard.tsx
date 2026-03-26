@@ -113,7 +113,7 @@ export default function Dashboard() {
               <h1 className="text-xl font-bold tracking-tight">
                 Virginia Family Law Monitor
               </h1>
-              <p className="text-[13px] text-slate-600 dark:text-muted-foreground mt-1">
+              <p className="text-[13px] text-muted-foreground mt-1">
                 Code updates, case law, ethics opinions, bar news, and practice trends
               </p>
             </div>
@@ -129,7 +129,7 @@ export default function Dashboard() {
               {activeFilterCount > 0 && (
                 <button
                   onClick={clearFilters}
-                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-red-700 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
+                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-[#b91c1c] dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
                 >
                   <X className="w-3 h-3" />
                   Clear filters
@@ -190,7 +190,7 @@ export default function Dashboard() {
               </div>
             ) : data && data.items.length > 0 ? (
               <div className="space-y-3">
-                <p className="text-[11px] text-slate-600 dark:text-muted-foreground">
+                <p className="text-[11px] text-muted-foreground">
                   Showing {(data.page - 1) * data.pageSize + 1}–{Math.min(data.page * data.pageSize, data.filteredTotal)} of {data.filteredTotal} update{data.filteredTotal !== 1 ? "s" : ""}
                 </p>
                 {data.items.map((item) => (
