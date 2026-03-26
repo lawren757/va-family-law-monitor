@@ -78,12 +78,12 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
               {meta.label}
             </span>
             {item.court && (
-              <span className="text-[10px] px-1.5 py-0 rounded-md border border-border text-muted-foreground">
+              <span className="text-[10px] px-1.5 py-0 rounded-md border border-slate-300 text-slate-600 dark:border-border dark:text-muted-foreground">
                 {item.court}
               </span>
             )}
             {item.scope && (
-              <span className="text-[10px] px-1.5 py-0 rounded-md border border-border text-muted-foreground capitalize">
+              <span className="text-[10px] px-1.5 py-0 rounded-md border border-slate-300 text-slate-600 dark:border-border dark:text-muted-foreground capitalize">
                 {item.scope}
               </span>
             )}
@@ -128,7 +128,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
               <button
                 key={tag}
                 onClick={() => onTagClick(tag)}
-                className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded-full bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors"
+                className="inline-flex items-center gap-0.5 text-[10px] px-1.5 py-0.5 rounded-full bg-slate-200 hover:bg-slate-300 text-slate-700 hover:text-slate-900 dark:bg-muted dark:hover:bg-muted/80 dark:text-muted-foreground dark:hover:text-foreground transition-colors"
               >
                 <Hash className="w-2.5 h-2.5" />
                 {TAG_LABELS[tag] || tag.replace(/_/g, " ")}
