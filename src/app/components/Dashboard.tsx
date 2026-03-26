@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 import TagFilter from "./TagFilter";
 import UpdateCard from "./UpdateCard";
 import ThemeToggle from "./ThemeToggle";
-import { PanelLeft, Search, X, Hash, ChevronLeft, ChevronRight } from "lucide-react";
+import { PanelLeft, Search, X, Hash, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 
 export default function Dashboard() {
   const [category, setCategory] = useState("all");
@@ -116,6 +116,12 @@ export default function Dashboard() {
               <p className="text-[13px] text-muted-foreground mt-1">
                 Code updates, case law, ethics opinions, bar news, and practice trends
               </p>
+              {data?.lastUpdated && (
+                <p className="text-[11px] text-muted-foreground mt-1.5 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  Last updated: {new Date(data.lastUpdated).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                </p>
+              )}
             </div>
 
             {/* Stats */}

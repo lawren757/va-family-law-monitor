@@ -3,6 +3,7 @@ import path from "path";
 import type { LawUpdate, UpdatesResponse } from "./types";
 
 const DATA_PATH = path.join(process.cwd(), "data", "updates.json");
+const META_PATH = path.join(process.cwd(), "data", "meta.json");
 
 const PAGE_SIZE = 20;
 
@@ -61,6 +62,15 @@ export async function getUpdates(
   const start = (safePage - 1) * PAGE_SIZE;
   const paginatedItems = items.slice(start, start + PAGE_SIZE);
 
+  let lastUpdated: string | null = null;
+  try {
+    const metaRaw = await fs.readFile(META_PATH, "utf-8");
+    const meta = JSON.parse(metaRaw);
+    lastUpdated = meta.lastUpdated || null;
+  } catch {
+    lastUpdated = null;
+  }
+
   return {
     items: paginatedItems,
     total,
@@ -70,6 +80,7 @@ export async function getUpdates(
     totalPages,
     categories: allCategories,
     tags: allTags,
+    lastUpdated,
   };
 }
 
@@ -89,4 +100,5 @@ export async function saveUpdates(updates: LawUpdate[]): Promise<void> {
 
   const merged = [...newUpdates, ...existing];
   await fs.writeFile(DATA_PATH, JSON.stringify(merged, null, 2));
+  await fs.writeFile(META_PATH, JSON.stringify({ lastUpdated: new Date().toISOString() }));
 }

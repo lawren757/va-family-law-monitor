@@ -34,6 +34,7 @@ export interface UpdatesResponse {
   totalPages: number;
   categories: Record<string, number>;
   tags: Record<string, number>;
+  lastUpdated: string | null;
 }
 
 export const CATEGORY_META: Record<
