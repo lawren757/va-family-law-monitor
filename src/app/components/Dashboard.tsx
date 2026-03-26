@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import type { UpdatesResponse } from "@/lib/types";
 import { CATEGORY_META, TAG_LABELS } from "@/lib/types";
 import Sidebar from "./Sidebar";
@@ -19,8 +19,10 @@ export default function Dashboard() {
   const [data, setData] = useState<UpdatesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const fetchIdRef = useRef(0);
 
   const fetchData = useCallback(async () => {
+    const id = ++fetchIdRef.current;
     setLoading(true);
     const params = new URLSearchParams();
     if (category !== "all") params.set("category", category);
@@ -30,15 +32,23 @@ export default function Dashboard() {
 
     try {
       const res = await fetch(`/api/updates?${params.toString()}`);
+      if (id !== fetchIdRef.current) return; // stale response
+      if (!res.ok) {
+        console.error("Failed to fetch updates:", res.status);
+        return;
+      }
       const json: UpdatesResponse = await res.json();
       setData(json);
       if (json.page !== page) {
         setPage(json.page);
       }
     } catch (err) {
+      if (id !== fetchIdRef.current) return;
       console.error("Failed to fetch updates:", err);
     } finally {
-      setLoading(false);
+      if (id === fetchIdRef.current) {
+        setLoading(false);
+      }
     }
   }, [category, tag, search, page]);
 

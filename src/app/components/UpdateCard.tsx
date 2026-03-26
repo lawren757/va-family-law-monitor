@@ -62,6 +62,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
       // Fallback: copy to clipboard
       try {
         await navigator.clipboard.writeText(shareText);
+        if (shareTimerRef.current) clearTimeout(shareTimerRef.current);
         setShareStatus("copied");
         shareTimerRef.current = setTimeout(() => setShareStatus("idle"), 2000);
       } catch {
