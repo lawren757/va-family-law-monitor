@@ -30,6 +30,7 @@ export interface UpdatesResponse {
   total: number;
   filteredTotal: number;
   page: number;
+  pageSize: number;
   totalPages: number;
   categories: Record<string, number>;
   tags: Record<string, number>;

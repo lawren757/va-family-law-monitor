@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   Scale, BookOpen, Landmark, Gavel, Shield, Building2,
   AlertTriangle, Newspaper, BarChart3, TrendingUp,
@@ -32,7 +32,14 @@ function formatDate(dateStr: string): string {
 export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
   const [expanded, setExpanded] = useState(false);
   const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
+  const shareTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const meta = CATEGORY_META[item.category] || CATEGORY_META.all;
+
+  useEffect(() => {
+    return () => {
+      if (shareTimerRef.current) clearTimeout(shareTimerRef.current);
+    };
+  }, []);
   const Icon = ICON_MAP[meta.icon] || Gavel;
 
   const handleShare = async () => {
@@ -56,7 +63,7 @@ export default function UpdateCard({ item, onTagClick }: UpdateCardProps) {
       try {
         await navigator.clipboard.writeText(shareText);
         setShareStatus("copied");
-        setTimeout(() => setShareStatus("idle"), 2000);
+        shareTimerRef.current = setTimeout(() => setShareStatus("idle"), 2000);
       } catch {
         console.error("Failed to copy to clipboard");
       }
