@@ -11,18 +11,18 @@ export type Category =
   | "trend";
 
 export interface LawUpdate {
-  id: string;
+  id: number;
   title: string;
   summary: string;
   category: Category;
   tags: string[];
   date: string;
-  citation?: string;
-  court?: string;
-  scope?: string;
+  citation: string | null;
+  court: string | null;
   sourceUrl: string;
   sourceName: string;
-  blogCredit?: string;
+  blogCredit: string | null;
+  pinned: boolean;
 }
 
 export interface UpdatesResponse {

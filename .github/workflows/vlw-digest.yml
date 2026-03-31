@@ -1,0 +1,400 @@
+# .github/workflows/vlw-digest.yml — Virginia Family Law Monitor
+#
+# Scrapes Virginia Lawyers Weekly (VLW) domestic relations tag page for new articles.
+# Runs on schedule (Monday 10 PM UTC) and can be dispatched manually or via the app.
+#
+# SETUP:
+#   1. Copy this file to .github/workflows/vlw-digest.yml in your GitHub repo
+#   2. Add these GitHub Secrets (Settings → Secrets and variables → Actions):
+#      - VLW_USERNAME: Your VLW subscriber email
+#      - VLW_PASSWORD: Your VLW subscriber password
+#      - APP_API_URL: Your Vercel deployment URL (e.g. https://va-law-monitor.vercel.app)
+#      - CRON_SECRET: Same secret as in Vercel env vars
+#      - GOOGLE_SHEETS_ID: The spreadsheet ID (from URL)
+#      - GOOGLE_SERVICE_ACCOUNT_JSON: Full JSON of your service account credentials
+#
+# HOW IT WORKS:
+#   1. Installs Node.js + Playwright + Chromium
+#   2. Logs into VLW with stored credentials
+#   3. Browses the domestic relations category page
+#   4. Extracts titles, summaries, dates, and URLs of new articles
+#   5. POSTs extracted articles to your app's /api/cron/vlw-digest endpoint
+#   6. App inserts new items into DB and updates Google Sheets
+
+name: VLW Digest Scraper
+
+on:
+  schedule:
+    # Every Monday at 10 PM UTC (6 PM EDT / 5 PM EST)
+    - cron: "0 22 * * 1"
+
+  # Allow manual dispatch from GitHub Actions UI or via API
+  workflow_dispatch:
+    inputs:
+      trigger:
+        description: "Who triggered this run"
+        required: false
+        default: "manual"
+      callback_url:
+        description: "Override callback URL (optional)"
+        required: false
+        default: ""
+
+env:
+  # Number of days back to check for new articles
+  LOOKBACK_DAYS: 7
+
+jobs:
+  scrape-vlw:
+    name: Scrape VLW Domestic Relations
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      # ──────────────────────────────────────────────────────────────────────────
+      # 1. Setup
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm install playwright @playwright/test
+          npx playwright install chromium --with-deps
+
+      # ──────────────────────────────────────────────────────────────────────────
+      # 2. Write the scraper script
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Write scraper script
+        run: |
+          cat > vlw_scraper.mjs << 'SCRAPER_EOF'
+          import { chromium } from 'playwright';
+
+          const VLW_LOGIN_URL = 'https://valawyersweekly.com/login/';
+          const VLW_DR_URL = 'https://valawyersweekly.com/tag/domestic-relations/';
+          // TODO: Confirm exact tag URL — may also be:
+          // https://valawyersweekly.com/category/domestic-relations/
+
+          const USERNAME = process.env.VLW_USERNAME;
+          const PASSWORD = process.env.VLW_PASSWORD;
+          const LOOKBACK_DAYS = parseInt(process.env.LOOKBACK_DAYS || '7');
+
+          if (!USERNAME || !PASSWORD) {
+            console.error('VLW_USERNAME and VLW_PASSWORD environment variables required');
+            process.exit(1);
+          }
+
+          async function run() {
+            const browser = await chromium.launch({
+              headless: true,
+              args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            });
+            
+            const context = await browser.newContext({
+              userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+              viewport: { width: 1280, height: 800 },
+            });
+            
+            const page = await context.newPage();
+            const articles = [];
+
+            try {
+              // ── Login ──────────────────────────────────────────────────────
+              console.log('Navigating to VLW login page...');
+              await page.goto(VLW_LOGIN_URL, { waitUntil: 'networkidle', timeout: 30000 });
+
+              // TODO: Inspect VLW login form and update these selectors
+              // Common WordPress login selectors:
+              await page.fill('#user_login, input[name="log"], input[type="text"]', USERNAME);
+              await page.fill('#user_pass, input[name="pwd"], input[type="password"]', PASSWORD);
+              await page.click('#wp-submit, input[type="submit"], button[type="submit"]');
+              
+              await page.waitForLoadState('networkidle', { timeout: 15000 });
+              
+              // Verify login succeeded
+              const loginError = await page.$('.login-error, .error, #login_error');
+              if (loginError) {
+                const errorText = await loginError.textContent();
+                throw new Error(`VLW login failed: ${errorText}`);
+              }
+              console.log('Login successful');
+
+              // ── Navigate to domestic relations tag ─────────────────────────
+              console.log('Navigating to domestic relations page...');
+              await page.goto(VLW_DR_URL, { waitUntil: 'networkidle', timeout: 30000 });
+
+              // ── Extract articles ──────────────────────────────────────────
+              const cutoffDate = new Date();
+              cutoffDate.setDate(cutoffDate.getDate() - LOOKBACK_DAYS);
+
+              // TODO: Update selectors to match VLW's actual HTML structure
+              // These are common patterns for WordPress-based legal news sites
+              const articleElements = await page.$$('article, .post, .entry, .story');
+              
+              console.log(`Found ${articleElements.length} article elements`);
+
+              for (const el of articleElements) {
+                try {
+                  // Extract title and link
+                  const titleEl = await el.$('h2 a, h3 a, .entry-title a, .post-title a');
+                  if (!titleEl) continue;
+                  
+                  const title = (await titleEl.textContent() || '').trim();
+                  const url = await titleEl.getAttribute('href') || '';
+
+                  if (!title || !url) continue;
+
+                  // Extract date
+                  const dateEl = await el.$('time, .entry-date, .post-date, [datetime]');
+                  const dateAttr = dateEl ? await dateEl.getAttribute('datetime') : null;
+                  const dateText = dateEl ? (await dateEl.textContent() || '').trim() : '';
+                  
+                  const rawDate = dateAttr || dateText;
+                  const articleDate = rawDate ? new Date(rawDate) : null;
+
+                  // Skip articles older than lookback window
+                  if (articleDate && articleDate < cutoffDate) {
+                    console.log(`Skipping old article: ${title} (${rawDate})`);
+                    continue;
+                  }
+
+                  // Extract excerpt/summary
+                  const excerptEl = await el.$('.entry-summary, .excerpt, p');
+                  const excerpt = excerptEl
+                    ? (await excerptEl.textContent() || '').trim().slice(0, 500)
+                    : '';
+
+                  // Extract tags
+                  const tagEls = await el.$$('.tags a, .post-tags a, .entry-tags a');
+                  const tags = await Promise.all(tagEls.map(t => t.textContent()));
+                  
+                  // Map VLW tags to our tag taxonomy
+                  const mappedTags = mapTags(tags.map(t => (t || '').trim().toLowerCase()));
+
+                  articles.push({
+                    title,
+                    summary: excerpt || `Virginia Lawyers Weekly: ${title}`,
+                    date: articleDate
+                      ? articleDate.toISOString().split('T')[0]
+                      : new Date().toISOString().split('T')[0],
+                    url: url.startsWith('http') ? url : `https://valawyersweekly.com${url}`,
+                    tags: mappedTags,
+                  });
+
+                  console.log(`  + ${title}`);
+                } catch (err) {
+                  console.error(`Error parsing article element: ${err.message}`);
+                }
+              }
+
+              // ── Optionally load full article content ──────────────────────
+              // For articles without full excerpts, visit each article page
+              // TODO: Enable this if VLW excerpts are insufficient
+              // for (const article of articles) {
+              //   if (article.summary.length < 100) {
+              //     await page.goto(article.url, { waitUntil: 'domcontentloaded' });
+              //     const content = await page.$eval(
+              //       '.entry-content, .article-content, .post-content',
+              //       el => el.textContent?.trim().slice(0, 600) || ''
+              //     ).catch(() => '');
+              //     if (content) article.summary = content;
+              //   }
+              // }
+
+            } finally {
+              await context.close();
+              await browser.close();
+            }
+
+            return articles;
+          }
+
+          function mapTags(vlwTags) {
+            const tagMap = {
+              'custody': 'custody',
+              'child custody': 'custody',
+              'child support': 'child_support',
+              'divorce': 'divorce',
+              'equitable distribution': 'equitable_distribution',
+              'property division': 'property_division',
+              'spousal support': 'spousal_support',
+              'alimony': 'spousal_support',
+              'domestic violence': 'domestic_violence',
+              'protective order': 'domestic_violence',
+              'adoption': 'adoption',
+              'guardianship': 'guardianship',
+              'relocation': 'relocation',
+              'parenting time': 'parenting_time',
+              'visitation': 'parenting_time',
+              'mental health': 'mental_health',
+              'child welfare': 'child_welfare',
+            };
+
+            const mapped = new Set();
+            for (const tag of vlwTags) {
+              const normalized = Object.keys(tagMap).find(k => tag.includes(k));
+              if (normalized) mapped.add(tagMap[normalized]);
+            }
+            
+            // Default tag for VLW domestic relations
+            if (mapped.size === 0) mapped.add('custody');
+            
+            return Array.from(mapped);
+          }
+
+          // Run the scraper
+          const articles = await run();
+          console.log(`\nExtracted ${articles.length} articles`);
+          
+          // Write results to file for next step
+          import { writeFileSync } from 'fs';
+          writeFileSync('vlw_results.json', JSON.stringify({ articles }, null, 2));
+          
+          process.exit(0);
+          SCRAPER_EOF
+          echo "Scraper script written"
+
+      # ──────────────────────────────────────────────────────────────────────────
+      # 3. Run the scraper
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Run VLW scraper
+        env:
+          VLW_USERNAME: ${{ secrets.VLW_USERNAME }}
+          VLW_PASSWORD: ${{ secrets.VLW_PASSWORD }}
+          LOOKBACK_DAYS: ${{ env.LOOKBACK_DAYS }}
+        run: |
+          node vlw_scraper.mjs
+          echo "Scraper complete. Results:"
+          cat vlw_results.json | node -e "
+            const d = JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+            console.log('Articles found:', d.articles.length);
+            d.articles.forEach(a => console.log(' -', a.title));
+          "
+
+      # ──────────────────────────────────────────────────────────────────────────
+      # 4. Send results to app API
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Submit articles to app
+        env:
+          APP_API_URL: ${{ secrets.APP_API_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          CALLBACK_URL: ${{ github.event.inputs.callback_url }}
+        run: |
+          # Use override callback URL if provided (for manual triggers)
+          TARGET_URL="${CALLBACK_URL:-${APP_API_URL}/api/cron/vlw-digest}"
+          
+          echo "Posting to: $TARGET_URL"
+          
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -X POST "$TARGET_URL" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $CRON_SECRET" \
+            -d @vlw_results.json)
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | head -n -1)
+          
+          echo "Response ($HTTP_CODE): $BODY"
+          
+          if [ "$HTTP_CODE" != "200" ] && [ "$HTTP_CODE" != "201" ]; then
+            echo "::error::API call failed with status $HTTP_CODE"
+            exit 1
+          fi
+
+      # ──────────────────────────────────────────────────────────────────────────
+      # 5. Update Google Sheets directly (backup path)
+      # This runs even if the API call succeeds, as a secondary sync
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Update Google Sheets (direct)
+        if: always()
+        env:
+          GOOGLE_SHEETS_ID: ${{ secrets.GOOGLE_SHEETS_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          cat > update_sheets.mjs << 'SHEETS_EOF'
+          import { google } from 'googleapis';
+          import { readFileSync } from 'fs';
+
+          const { articles } = JSON.parse(readFileSync('vlw_results.json', 'utf8'));
+          
+          if (!articles || articles.length === 0) {
+            console.log('No articles to add to sheets');
+            process.exit(0);
+          }
+
+          const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON || '{}');
+          const auth = new google.auth.GoogleAuth({
+            credentials: serviceAccount,
+            scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+          });
+
+          const sheets = google.sheets({ version: 'v4', auth });
+          const spreadsheetId = process.env.GOOGLE_SHEETS_ID;
+
+          if (!spreadsheetId) {
+            console.log('GOOGLE_SHEETS_ID not set, skipping sheets update');
+            process.exit(0);
+          }
+
+          // Get last row to find next ID
+          const readRes = await sheets.spreadsheets.values.get({
+            spreadsheetId,
+            range: 'A:A',
+          });
+          const existingRows = readRes.data.values || [];
+          let nextId = existingRows.length; // Row count = last id (if header in row 1)
+
+          // Format rows for insertion
+          // TODO: Adjust column order to match your sheet's header row
+          const rows = articles.map(article => [
+            ++nextId,               // A: ID
+            article.title,          // B: Title
+            article.summary,        // C: Summary
+            article.date,           // D: Date
+            'news',                 // E: Category
+            article.tags.join(', '),// F: Tags
+            'Virginia Lawyers Weekly', // G: Source Name
+            article.url,            // H: Source URL
+            '',                     // I: Citation
+            '',                     // J: Court
+            '',                     // K: Blog Credit
+            new Date().toISOString(), // L: Created At
+          ]);
+
+          await sheets.spreadsheets.values.append({
+            spreadsheetId,
+            range: 'Sheet1!A:L',   // TODO: Update sheet name if different
+            valueInputOption: 'USER_ENTERED',
+            requestBody: { values: rows },
+          });
+
+          console.log(`Appended ${rows.length} rows to Google Sheets`);
+          SHEETS_EOF
+          
+          npm install googleapis --save-dev --quiet
+          node update_sheets.mjs
+
+      # ──────────────────────────────────────────────────────────────────────────
+      # 6. Summary
+      # ──────────────────────────────────────────────────────────────────────────
+      - name: Job summary
+        if: always()
+        run: |
+          ARTICLE_COUNT=$(cat vlw_results.json 2>/dev/null | node -e "
+            try {
+              const d = JSON.parse(require('fs').readFileSync('/dev/stdin','utf8'));
+              process.stdout.write(String(d.articles?.length || 0));
+            } catch { process.stdout.write('0'); }
+          " 2>/dev/null || echo "0")
+          
+          echo "## VLW Digest Run Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Articles found:** $ARTICLE_COUNT" >> $GITHUB_STEP_SUMMARY
+          echo "- **Run date:** $(date -u '+%Y-%m-%d %H:%M UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "- **Trigger:** ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY

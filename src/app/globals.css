@@ -1,6 +1,14 @@
 @import "tailwindcss";
 
-/* VFL Toolkit Theme */
+/* Safe area insets for iPhone notch/Dynamic Island */
+html {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* VFL Toolkit Theme — Light Mode */
 :root {
   --background: #eaf8fc;
   --foreground: #1a1a2e;
@@ -8,13 +16,33 @@
   --card-foreground: #1a1a2e;
   --primary: #0066CC;
   --primary-foreground: #ffffff;
+  --secondary: #f0f4f8;
+  --secondary-foreground: #1a1a2e;
   --muted: #f0f4f8;
   --muted-foreground: #64748b;
-  --border: #e2e8f0;
   --accent: #f0f4f8;
   --accent-foreground: #0066CC;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #0066CC;
+  --radius: 0.5rem;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a2e;
+
+  /* Sidebar - dark navy always */
+  --sidebar: #1a2236;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-border: #2d3a52;
+  --sidebar-primary: #0066CC;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d3a52;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-ring: #0066CC;
 }
 
+/* VFL Toolkit Theme — Dark Mode */
 .dark {
   --background: #1a2236;
   --foreground: #e2e8f0;
@@ -22,13 +50,32 @@
   --card-foreground: #e2e8f0;
   --primary: #3E8EE5;
   --primary-foreground: #ffffff;
+  --secondary: #334155;
+  --secondary-foreground: #e2e8f0;
   --muted: #334155;
   --muted-foreground: #94a3b8;
-  --border: #334155;
   --accent: #1e293b;
   --accent-foreground: #3E8EE5;
+  --destructive: #f87171;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #334155;
+  --ring: #3E8EE5;
+  --popover: #1e293b;
+  --popover-foreground: #e2e8f0;
+
+  /* Sidebar - darker navy in dark mode */
+  --sidebar: #111827;
+  --sidebar-foreground: #e2e8f0;
+  --sidebar-border: #1e293b;
+  --sidebar-primary: #3E8EE5;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1e293b;
+  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-ring: #3E8EE5;
 }
 
+/* Register theme tokens with Tailwind v4 */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,25 +83,61 @@
   --color-card-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-inter);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* Base layer */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
 
-/* Line clamp utility */
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Utilities */
+@layer utilities {
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+  }
 }
 
 /* Smooth transitions for theme changes */

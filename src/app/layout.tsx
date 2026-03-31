@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
+import { cookies } from "next/headers";
+import { ThemeProvider } from "@/components/theme-provider";
+import { FilterProvider } from "@/components/providers/filter-provider";
+import { QueryProvider } from "@/components/providers/query-provider";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import "./globals.css";
 
 const inter = Inter({
@@ -27,17 +31,31 @@ export const viewport: Viewport = {
   themeColor: "#0066CC",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Read saved theme from cookie server-side to prevent flash
+  const cookieStore = await cookies();
+  const theme = (cookieStore.get("va-law-theme")?.value ?? "dark") as "dark" | "light";
+
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
-        </ThemeProvider>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} h-full antialiased ${theme}`}
+    >
+      <body className="min-h-full flex font-sans">
+        <QueryProvider>
+          <FilterProvider>
+            <ThemeProvider defaultTheme={theme}>
+              <SidebarProvider>
+                {children}
+              </SidebarProvider>
+            </ThemeProvider>
+          </FilterProvider>
+        </QueryProvider>
       </body>
     </html>
   );

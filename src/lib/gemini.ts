@@ -72,9 +72,13 @@ export async function fetchUpdatesFromGemini(): Promise<LawUpdate[]> {
 
   return updates
     .filter((u) => u.title && u.summary && validCategories.includes(u.category))
-    .map((u) => ({
+    .map((u, idx) => ({
       ...u,
-      id: u.id || u.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 60),
+      id: typeof u.id === "number" ? u.id : idx + 1,
       tags: Array.isArray(u.tags) ? u.tags : [],
+      citation: u.citation ?? null,
+      court: u.court ?? null,
+      blogCredit: u.blogCredit ?? null,
+      pinned: u.pinned ?? false,
     }));
 }
