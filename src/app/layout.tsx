@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { cookies } from "next/headers";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FilterProvider } from "@/components/providers/filter-provider";
@@ -7,9 +7,15 @@ import { QueryProvider } from "@/components/providers/query-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "./fonts/InterVariable.woff2",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

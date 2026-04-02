@@ -188,8 +188,17 @@ const Sidebar = React.forwardRef<
         <>
           {openMobile && (
             <div
+              role="button"
+              tabIndex={0}
+              aria-label="Close sidebar"
               className="fixed inset-0 z-50 bg-black/50"
               onClick={() => setOpenMobile(false)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpenMobile(false);
+                }
+              }}
             />
           )}
           <div
