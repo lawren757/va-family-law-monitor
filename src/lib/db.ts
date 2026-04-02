@@ -103,8 +103,9 @@ async function writeJsonItems(items: UpdateItem[]): Promise<void> {
 // ─── Postgres helpers ───────────────────────────────────────────────────────
 
 async function getPostgresClient() {
-  const { db } = await import("@vercel/postgres");
-  return db;
+  const { Pool } = await import("@neondatabase/serverless");
+  const pool = new Pool({ connectionString: process.env.POSTGRES_URL });
+  return pool;
 }
 
 // ─── Public API ─────────────────────────────────────────────────────────────
@@ -242,13 +243,14 @@ async function getUpdatesJson(options: {
 
 export async function insertUpdate(item: InsertItem): Promise<number> {
   if (usePostgres) {
-    const { sql } = await import("@vercel/postgres");
+    const { neon } = await import("@neondatabase/serverless");
+    const sql = neon(process.env.POSTGRES_URL!);
     const searchTags = [...(item.tags || []), item.category, item.court || ""]
       .filter(Boolean)
       .join(" ");
 
     const tagsArray = `{${(item.tags || []).join(",")}}`;
-    const { rows } = await sql`
+    const rows = await sql`
       INSERT INTO updates
         (title, summary, date, category, tags, source_name, source_url,
          citation, court, blog_credit, search_tags, pinned)
@@ -260,7 +262,7 @@ export async function insertUpdate(item: InsertItem): Promise<number> {
          ${item.blog_credit || null}, ${searchTags}, ${item.pinned || false})
       RETURNING id
     `;
-    return rows[0].id;
+    return (rows[0] as { id: number }).id;
   }
 
   // JSON fallback
@@ -287,8 +289,8 @@ export async function insertUpdate(item: InsertItem): Promise<number> {
 
 export async function getExistingUrls(urls: string[]): Promise<Set<string>> {
   if (usePostgres) {
-    const { db } = await import("@vercel/postgres");
-    const client = db;
+    const { Pool } = await import("@neondatabase/serverless");
+    const client = new Pool({ connectionString: process.env.POSTGRES_URL });
     const urlsArray = `{${urls.map((u) => `"${u.replace(/"/g, '\\"')}"`).join(",")}}`;
     const { rows } = await client.query(
       `SELECT source_url FROM updates WHERE source_url = ANY($1::text[])`,
