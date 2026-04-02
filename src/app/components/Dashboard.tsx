@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import type { UpdatesResponse } from "@/lib/types";
 import { CATEGORY_META, TAG_LABELS } from "@/lib/types";
 import Sidebar from "./Sidebar";
@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 import TagFilter from "./TagFilter";
 import UpdateCard from "./UpdateCard";
 import ThemeToggle from "./ThemeToggle";
-import { PanelLeft, Search, X, Hash, ChevronLeft, ChevronRight } from "lucide-react";
+import { PanelLeft, Search, X, Hash, ChevronLeft, ChevronRight, Clock } from "lucide-react";
 
 export default function Dashboard() {
   const [category, setCategory] = useState("all");
@@ -19,8 +19,10 @@ export default function Dashboard() {
   const [data, setData] = useState<UpdatesResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const fetchIdRef = useRef(0);
 
   const fetchData = useCallback(async () => {
+    const id = ++fetchIdRef.current;
     setLoading(true);
     const params = new URLSearchParams();
     if (category !== "all") params.set("category", category);
@@ -30,15 +32,23 @@ export default function Dashboard() {
 
     try {
       const res = await fetch(`/api/updates?${params.toString()}`);
+      if (id !== fetchIdRef.current) return; // stale response
+      if (!res.ok) {
+        console.error("Failed to fetch updates:", res.status);
+        return;
+      }
       const json: UpdatesResponse = await res.json();
       setData(json);
       if (json.page !== page) {
         setPage(json.page);
       }
     } catch (err) {
+      if (id !== fetchIdRef.current) return;
       console.error("Failed to fetch updates:", err);
     } finally {
-      setLoading(false);
+      if (id === fetchIdRef.current) {
+        setLoading(false);
+      }
     }
   }, [category, tag, search, page]);
 
@@ -88,6 +98,7 @@ export default function Dashboard() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-label="Toggle sidebar"
             className="md:hidden p-1.5 rounded-md hover:bg-muted"
+            aria-label="Toggle sidebar"
           >
             <PanelLeft className="w-4 h-4" />
           </button>
@@ -106,6 +117,12 @@ export default function Dashboard() {
               <p className="text-[13px] text-muted-foreground mt-1">
                 Code updates, case law, ethics opinions, bar news, and practice trends
               </p>
+              {data?.lastUpdated && (
+                <p className="text-[11px] text-muted-foreground mt-1.5 flex items-center gap-1">
+                  <Clock className="w-3 h-3" />
+                  Last updated: {new Date(data.lastUpdated).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "2-digit" })}
+                </p>
+              )}
             </div>
 
             {/* Stats */}
@@ -119,7 +136,7 @@ export default function Dashboard() {
               {activeFilterCount > 0 && (
                 <button
                   onClick={clearFilters}
-                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
+                  className="inline-flex items-center gap-1 h-6 text-[11px] px-2 text-[#b91c1c] dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-md transition-colors"
                 >
                   <X className="w-3 h-3" />
                   Clear filters
@@ -217,7 +234,7 @@ export default function Dashboard() {
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-muted mb-3">
                   <Search className="w-5 h-5 text-muted-foreground" />
                 </div>
-                <h3 className="text-sm font-medium mb-1">No results found</h3>
+                <h2 className="text-sm font-medium mb-1">No results found</h2>
                 <p className="text-[12px] text-muted-foreground mb-3">
                   Try adjusting your filters or search terms
                 </p>

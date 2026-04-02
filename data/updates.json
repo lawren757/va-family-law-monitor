@@ -1,10 +1,98 @@
 [
   {
+    "id": "vsb-discipline-myers-suspension-2026",
+    "title": "VSB Disciplinary Board Suspends Lenard Tyrone Myers Jr.'s License",
+    "summary": "Effective April 1, 2026, the Virginia State Bar Disciplinary Board suspended the law license of Lenard Tyrone Myers Jr. Attorneys facing suspension must notify clients and courts of their inability to continue practicing. This action underscores the VSB's continued enforcement of professional conduct standards.",
+    "category": "attorney_discipline",
+    "tags": [
+      "disciplinary",
+      "ethics"
+    ],
+    "date": "2026-04-01",
+    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "vsb-leo-1901-ai-fees-approved-2026",
+    "title": "LEO 1901 Approved: Reasonable Fees and Generative AI in Legal Practice",
+    "summary": "The Supreme Court of Virginia approved Legal Ethics Opinion 1901, addressing the reasonableness of fees when lawyers use time-saving generative AI tools. The opinion discusses factors under Rule 1.5(a) that support value-based billing on a non-hourly basis for work completed efficiently with AI assistance. Family law practitioners using AI for document drafting and research should review this guidance to ensure their billing practices comply.",
+    "category": "ethics_opinion",
+    "tags": [
+      "ethics",
+      "ai_in_law",
+      "fees",
+      "technology",
+      "competence"
+    ],
+    "date": "2026-03-27",
+    "sourceUrl": "https://vsb.org/Site/Site/news/rules-news/20250327-prop-1901-fees-ai.aspx",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "va-lawyers-hall-of-fame-2026",
+    "title": "Virginia Lawyers Hall of Fame Event Set for April 30, 2026",
+    "summary": "Virginia Lawyers Weekly will host the Virginia Lawyers Hall of Fame event on April 30, 2026, honoring members of Virginia's legal community who have been practicing for 30 years or more. A separate May 27, 2026 event will feature a panel discussing 'AI Governance and Regulatory Readiness for Law Firms,' reflecting the growing intersection of technology and legal practice.",
+    "category": "news",
+    "tags": [
+      "ethics",
+      "ai_in_law",
+      "technology"
+    ],
+    "date": "2026-03-25",
+    "sourceUrl": "https://valawyersweekly.com/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "chief-justice-roberts-jefferson-medal-2026",
+    "title": "Chief Justice John Roberts to Receive Jefferson Medal in Law",
+    "summary": "Chief Justice John Roberts has been selected to receive the prestigious Thomas Jefferson Medal in Law, as reported by Virginia Lawyers Weekly on March 20, 2026. The award recognizes outstanding contributions to the legal profession. Roberts' tenure on the Court has included several decisions affecting family law nationally, including matters of marriage equality and parental rights.",
+    "category": "news",
+    "tags": [
+      "ethics"
+    ],
+    "date": "2026-03-20",
+    "sourceUrl": "https://valawyersweekly.com/2026/03/20/chief-john-roberts-jefferson-medal-law-2026/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "lee-v-virginia-state-bar-scv-2026",
+    "title": "Supreme Court of Virginia Issues Opinion in Lee v. Virginia State Bar",
+    "summary": "On March 19, 2026 (Docket No. 250724), the Supreme Court of Virginia issued its opinion in Lee v. Virginia State Bar. While the specific details of the ruling are significant for the attorney discipline framework, the case underscores the Supreme Court's active oversight of attorney conduct through the VSB disciplinary system, which directly impacts family law practitioners subject to professional conduct rules.",
+    "category": "case_law",
+    "tags": [
+      "disciplinary",
+      "ethics"
+    ],
+    "date": "2026-03-19",
+    "citation": "Lee v. Virginia State Bar, No. 250724 (Va. 2026)",
+    "court": "Supreme Court of Virginia",
+    "sourceUrl": "https://law.justia.com/cases/virginia/supreme-court/",
+    "sourceName": "Justia — Supreme Court of Virginia"
+  },
+  {
+    "id": "vsb-discipline-alexander-trust-account-2026",
+    "title": "Attorney Standish Alexander Reprimanded for Safekeeping Property Violations",
+    "summary": "Effective March 17, 2026, the Third District Subcommittee issued a public reprimand with terms to Standish Alexander for violating professional rules governing the safekeeping of client property. Trust account violations remain one of the most common bases for attorney discipline in Virginia, particularly affecting practitioners who handle client funds in divorce and property settlement matters.",
+    "category": "attorney_discipline",
+    "tags": [
+      "disciplinary",
+      "trust_accounts",
+      "ethics"
+    ],
+    "date": "2026-03-17",
+    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
+    "sourceName": "Virginia State Bar"
+  },
+  {
     "id": "perkins-v-howington-scv-2026",
     "title": "Supreme Court of Virginia Decides Perkins v. Howington on Adoption Without Parental Consent",
     "summary": "In Perkins v. Howington (No. 240960, decided March 12, 2026), the Supreme Court of Virginia reviewed a stepmother's petition to adopt a child without the birth mother's consent under Va. Code § 63.2-1202(H). The circuit court found the mother had neither visited nor contacted the child for six months and that this lack of contact was without just cause. The Court of Appeals affirmed, interpreting 'just cause' to mean circumstances beyond the parent's control. The Supreme Court's ruling has significant implications for practitioners handling contested adoption cases.",
     "category": "case_law",
-    "tags": ["adoption", "custody", "child_welfare"],
+    "tags": [
+      "adoption",
+      "custody",
+      "child_welfare"
+    ],
     "date": "2026-03-12",
     "citation": "Perkins v. Howington, No. 240960 (Va. 2026)",
     "court": "Supreme Court of Virginia",
@@ -12,25 +100,62 @@
     "sourceName": "Justia — Supreme Court of Virginia"
   },
   {
-    "id": "mast-v-aa-afghan-adoption-scv-2026",
-    "title": "Supreme Court of Virginia Upholds Adoption of Afghan Child in Mast v. A.A.",
-    "summary": "In a landmark February 12, 2026 decision (No. 240707), the Supreme Court of Virginia ruled in favor of Joshua and Stephanie Mast, upholding their adoption of a severely wounded orphaned child rescued by U.S. military forces in Afghanistan. The ruling brings to a close years of complex litigation and international attention, affirming the finality of the Masts' adoption and dismissing challenges brought by Afghan nationals who sought to overturn the adoption order.",
-    "category": "case_law",
-    "tags": ["adoption", "child_welfare"],
-    "date": "2026-02-12",
-    "citation": "Mast v. A.A., No. 240707 (Va. 2026)",
-    "court": "Supreme Court of Virginia",
-    "sourceUrl": "https://law.justia.com/cases/virginia/supreme-court/2026/",
-    "sourceName": "Justia — Supreme Court of Virginia"
+    "id": "vacourts-best-interests-factors-updated-2026",
+    "title": "Virginia Code § 20-124.3 Best Interest Factors Updated as of March 2026",
+    "summary": "As of March 12, 2026, Virginia's best interest factors for custody and visitation determinations under § 20-124.3 continue to require courts to consider the child's needs, each parent's propensity to support the child's relationship with the other parent, the child's reasonable preference, and any history of family or sexual abuse within the prior 10 years. Practitioners should review the current statutory text to ensure compliance with the latest version.",
+    "category": "virginia_code",
+    "tags": [
+      "custody",
+      "child_welfare",
+      "domestic_violence",
+      "parenting_time"
+    ],
+    "date": "2026-03-12",
+    "citation": "Va. Code Ann. § 20-124.3",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6.1/section20-124.3/",
+    "sourceName": "Virginia Law"
   },
   {
-    "id": "chief-justice-roberts-jefferson-medal-2026",
-    "title": "Chief Justice John Roberts to Receive Jefferson Medal in Law",
-    "summary": "Chief Justice John Roberts has been selected to receive the prestigious Thomas Jefferson Medal in Law, as reported by Virginia Lawyers Weekly on March 20, 2026. The award recognizes outstanding contributions to the legal profession. Roberts' tenure on the Court has included several decisions affecting family law nationally, including matters of marriage equality and parental rights.",
-    "category": "news",
-    "tags": ["ethics"],
-    "date": "2026-03-20",
-    "sourceUrl": "https://valawyersweekly.com/2026/03/20/chief-john-roberts-jefferson-medal-law-2026/",
+    "id": "child-support-income-cap-42500-impact-2026",
+    "title": "Impact of SB 805: Child Support Guidelines Now Cover Incomes Up to $42,500/Month",
+    "summary": "Senate Bill 805, effective July 1, 2025, raised the combined monthly gross income cap for Virginia's child support guidelines from $35,000 to $42,500 and increased guideline amounts across all income levels for the first time since 2014. For incomes above the new cap, courts start at the $42,500 guideline amount and apply a percentage (2.6%–5.0% depending on number of children) to excess income. The old $250 custodial parent medical deductible has also been eliminated in newer orders.",
+    "category": "virginia_code",
+    "tags": [
+      "child_support",
+      "financial"
+    ],
+    "date": "2026-03-01",
+    "citation": "Va. Code Ann. § 20-108.2",
+    "scope": "statewide",
+    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6/section20-108.2/",
+    "sourceName": "Virginia Law"
+  },
+  {
+    "id": "vsb-district-committee-volunteers-2026",
+    "title": "VSB Seeks Volunteer Attorneys and Lay Members for Disciplinary Committees Starting July 2026",
+    "summary": "The Virginia State Bar is seeking volunteer attorneys and lay members to serve on its 17 Local Disciplinary District Committees beginning July 1, 2026. These committees review complaints and investigations against attorneys, including family law practitioners, and determine whether there is sufficient evidence of professional conduct violations. Two attorney and one lay member volunteers are also needed for the Disciplinary Board.",
+    "category": "vsb_update",
+    "tags": [
+      "disciplinary",
+      "ethics"
+    ],
+    "date": "2026-03-01",
+    "sourceUrl": "https://vsb.org/Site/Site/news/news-items/20251028-district-committees.aspx",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "no-fault-divorce-separation-intent-2026",
+    "title": "Virginia Law: Continuous Intent to Separate Not Required for No-Fault Divorce",
+    "summary": "Virginia case law confirms that a couple seeking a no-fault divorce under Va. Code § 20-91(A)(9) is not required to show that either party continuously maintained an intent to separate permanently throughout the statutory period. The intent requirement is satisfied if a party has the intent to separate permanently at the outset of the statutory separation period. This precedent continues to guide practitioners and courts in 2026.",
+    "category": "case_law",
+    "tags": [
+      "divorce"
+    ],
+    "date": "2026-03-01",
+    "citation": "Va. Code Ann. § 20-91(A)(9)",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://valawyersweekly.com/2023/08/28/continuous-intent-to-separate-not-required/",
     "sourceName": "Virginia Lawyers Weekly"
   },
   {
@@ -38,68 +163,97 @@
     "title": "Virginia General Assembly Proposes Expanding Court of Appeals to 21 Judges",
     "summary": "The Virginia General Assembly has proposed expanding the Court of Appeals from 17 to 21 judges. Since the 2021 expansion, the appellate court has been hearing 22% more domestic relations cases on average and the number of motions heard increased 125% from January 2022 to January 2025. Cases at the 90th percentile now take more than a year and a half to litigate, prompting the need for additional judicial resources. The Department of Planning and Budget estimates the cost at $3.4 million for fiscal 2027.",
     "category": "news",
-    "tags": ["custody", "divorce", "child_support"],
+    "tags": [
+      "custody",
+      "divorce",
+      "child_support"
+    ],
     "date": "2026-02-17",
     "sourceUrl": "https://valawyersweekly.com/2026/02/17/virginia-proposes-expand-court-appeals-judges/",
     "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "va-access-to-justice-listening-tour-2026",
+    "title": "Virginia Access to Justice Commission Hosts Statewide Listening Tour",
+    "summary": "Virginia's Access to Justice Commission is hosting a statewide listening tour asking community members to share their experiences finding legal help, including challenges appearing in Virginia courts for family law matters. The initiative aims to identify barriers to justice and develop solutions for making legal help more available, particularly for self-represented litigants in custody, support, and divorce proceedings.",
+    "category": "trend",
+    "tags": [
+      "custody",
+      "divorce",
+      "child_support"
+    ],
+    "date": "2026-02-15",
+    "scope": "statewide",
+    "sourceUrl": "https://valawyersweekly.com/2025/06/20/virginia-access-to-justice-hearing-legal-services/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "mast-v-aa-afghan-adoption-scv-2026",
+    "title": "Supreme Court of Virginia Upholds Adoption of Afghan Child in Mast v. A.A.",
+    "summary": "In a landmark February 12, 2026 decision (No. 240707), the Supreme Court of Virginia ruled in favor of Joshua and Stephanie Mast, upholding their adoption of a severely wounded orphaned child rescued by U.S. military forces in Afghanistan. The ruling brings to a close years of complex litigation and international attention, affirming the finality of the Masts' adoption and dismissing challenges brought by Afghan nationals who sought to overturn the adoption order.",
+    "category": "case_law",
+    "tags": [
+      "adoption",
+      "child_welfare"
+    ],
+    "date": "2026-02-12",
+    "citation": "Mast v. A.A., No. 240707 (Va. 2026)",
+    "court": "Supreme Court of Virginia",
+    "sourceUrl": "https://law.justia.com/cases/virginia/supreme-court/2026/",
+    "sourceName": "Justia — Supreme Court of Virginia"
+  },
+  {
+    "id": "vsb-family-law-writing-contest-2026",
+    "title": "VSB Family Law Section Hosts Fifth Annual Law Student Writing Competition",
+    "summary": "The Virginia State Bar Family Law Section is sponsoring its fifth annual writing competition open to second and third-year law students at Virginia and Washington, D.C. law schools, with entries due by March 16, 2026. The winning entry will be published in the Virginia Family Law Quarterly. An upcoming Family Law Section event is scheduled in Richmond on April 23, 2026.",
+    "category": "vsb_update",
+    "tags": [
+      "ethics"
+    ],
+    "date": "2026-02-10",
+    "sourceUrl": "https://vsb.org/common/Uploaded%20files/sections-conferences/_CurrentNewsletterIssues/fa-current.pdf",
+    "sourceName": "Virginia State Bar — Family Law Quarterly"
   },
   {
     "id": "coa-magistrates-emergency-custody-orders-2026",
     "title": "Court of Appeals Rules Magistrates Can Issue Emergency Custody Orders",
     "summary": "In a February 2026 decision, the Virginia Court of Appeals ruled that magistrates are judicial officers authorized to issue emergency custody orders. This ruling clarifies the authority of magistrates in emergency domestic situations and has direct implications for protective order and emergency custody proceedings across the Commonwealth.",
     "category": "case_law",
-    "tags": ["custody", "domestic_violence", "child_welfare"],
+    "tags": [
+      "custody",
+      "domestic_violence",
+      "child_welfare"
+    ],
     "date": "2026-02-03",
     "court": "Virginia Court of Appeals",
     "sourceUrl": "https://www.vacourts.gov/courts/cav/home",
     "sourceName": "Virginia Court of Appeals"
   },
   {
-    "id": "vsb-leo-1901-ai-fees-approved-2026",
-    "title": "LEO 1901 Approved: Reasonable Fees and Generative AI in Legal Practice",
-    "summary": "The Supreme Court of Virginia approved Legal Ethics Opinion 1901, addressing the reasonableness of fees when lawyers use time-saving generative AI tools. The opinion discusses factors under Rule 1.5(a) that support value-based billing on a non-hourly basis for work completed efficiently with AI assistance. Family law practitioners using AI for document drafting and research should review this guidance to ensure their billing practices comply.",
-    "category": "ethics_opinion",
-    "tags": ["ethics", "ai_in_law", "fees", "technology", "competence"],
-    "date": "2026-03-27",
-    "sourceUrl": "https://vsb.org/Site/Site/news/rules-news/20250327-prop-1901-fees-ai.aspx",
-    "sourceName": "Virginia State Bar"
-  },
-  {
-    "id": "vsb-discipline-edelstein-revocation-2026",
-    "title": "Attorney David Andrew Edelstein's License Revoked by VSB Disciplinary Board",
-    "summary": "Effective January 8, 2026, the Virginia State Bar Disciplinary Board revoked the license of David Andrew Edelstein to practice law in the Commonwealth of Virginia. License revocation is the most severe disciplinary sanction available, imposed only for the most serious violations of the Rules of Professional Conduct.",
-    "category": "attorney_discipline",
-    "tags": ["disciplinary", "ethics"],
-    "date": "2026-01-08",
-    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
-    "sourceName": "Virginia State Bar"
-  },
-  {
-    "id": "vsb-discipline-myers-suspension-2026",
-    "title": "VSB Disciplinary Board Suspends Lenard Tyrone Myers Jr.'s License",
-    "summary": "Effective April 1, 2026, the Virginia State Bar Disciplinary Board suspended the law license of Lenard Tyrone Myers Jr. Attorneys facing suspension must notify clients and courts of their inability to continue practicing. This action underscores the VSB's continued enforcement of professional conduct standards.",
-    "category": "attorney_discipline",
-    "tags": ["disciplinary", "ethics"],
-    "date": "2026-04-01",
-    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
-    "sourceName": "Virginia State Bar"
-  },
-  {
-    "id": "vsb-discipline-alexander-trust-account-2026",
-    "title": "Attorney Standish Alexander Reprimanded for Safekeeping Property Violations",
-    "summary": "Effective March 17, 2026, the Third District Subcommittee issued a public reprimand with terms to Standish Alexander for violating professional rules governing the safekeeping of client property. Trust account violations remain one of the most common bases for attorney discipline in Virginia, particularly affecting practitioners who handle client funds in divorce and property settlement matters.",
-    "category": "attorney_discipline",
-    "tags": ["disciplinary", "trust_accounts", "ethics"],
-    "date": "2026-03-17",
-    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
-    "sourceName": "Virginia State Bar"
+    "id": "va-judicial-system-marshall-chatbot-2026",
+    "title": "Virginia Judicial System Launches 'Marshall' AI Chatbot for Self-Help Legal Guidance",
+    "summary": "The Virginia Judicial System launched 'Marshall,' an AI-powered chatbot developed with funding from the Virginia Law Foundation, announced on January 30, 2026. The tool provides self-help guidance for individuals navigating family law matters including custody, visitation, child support, and divorce without an attorney. The chatbot is available through the Virginia Courts self-help website.",
+    "category": "news",
+    "tags": [
+      "technology",
+      "ai_in_law",
+      "custody",
+      "divorce",
+      "child_support"
+    ],
+    "date": "2026-01-30",
+    "sourceUrl": "https://selfhelp.vacourts.gov/",
+    "sourceName": "Virginia Judicial System"
   },
   {
     "id": "hb1346-noncustodial-parent-employment-pilot-2026",
     "title": "HB 1346: Noncustodial Parent Employment and Child Support Pilot Program",
     "summary": "Delegate Nadarius Clark (D-Portsmouth) introduced HB 1346 in the 2026 Regular Session, proposing a Noncustodial Parent Employment and Child Support Pilot Program. The bill aims to address the link between noncustodial parent unemployment and child support non-compliance by creating a structured employment assistance program, with a sunset provision and reporting requirement.",
     "category": "virginia_code",
-    "tags": ["child_support", "financial"],
+    "tags": [
+      "child_support",
+      "financial"
+    ],
     "date": "2026-01-15",
     "citation": "HB 1346 (2026 Regular Session)",
     "scope": "statewide",
@@ -107,11 +261,72 @@
     "sourceName": "Virginia Legislative Information System"
   },
   {
+    "id": "hb5-2026-session-family-law-bill",
+    "title": "HB 5 Filed in 2026 Regular Session — Prefiled Family-Related Legislation",
+    "summary": "House Bill 5 is among the earliest bills prefiled for Virginia's 2026 Regular Session. The 2026 session has seen significant legislative activity in domestic relations matters, with multiple bills filed addressing child support, custody, protective orders, and court-appointed counsel compensation. Practitioners should monitor the Virginia LIS for bill tracking and hearing schedules.",
+    "category": "virginia_code",
+    "tags": [
+      "custody",
+      "child_support"
+    ],
+    "date": "2026-01-10",
+    "scope": "statewide",
+    "sourceUrl": "https://lis.virginia.gov/bill-details/20261/HB5/text/HB5",
+    "sourceName": "Virginia Legislative Information System"
+  },
+  {
+    "id": "vsb-discipline-edelstein-revocation-2026",
+    "title": "Attorney David Andrew Edelstein's License Revoked by VSB Disciplinary Board",
+    "summary": "Effective January 8, 2026, the Virginia State Bar Disciplinary Board revoked the license of David Andrew Edelstein to practice law in the Commonwealth of Virginia. License revocation is the most severe disciplinary sanction available, imposed only for the most serious violations of the Rules of Professional Conduct.",
+    "category": "attorney_discipline",
+    "tags": [
+      "disciplinary",
+      "ethics"
+    ],
+    "date": "2026-01-08",
+    "sourceUrl": "https://vsb.org/Site/Site/news/disciplinary-actions.aspx",
+    "sourceName": "Virginia State Bar"
+  },
+  {
+    "id": "gal-pay-increase-legislative-push-2026",
+    "title": "Legislators Push for Increased GAL and Court-Appointed Counsel Pay in 2026 Session",
+    "summary": "Senate Majority Leader Scott Surovell (D-Fairfax) highlighted that the pay for court-appointed counsel and guardians ad litem 'should be offensive to everybody' and that the legislature is working to find more funding. Family law is identified as one of the top subject matter areas for the 2026 session, alongside criminal law, personal injury, and trusts and estates. The legislative trifecta under Governor Spanberger provides momentum for these reforms.",
+    "category": "news",
+    "tags": [
+      "guardianship",
+      "fees",
+      "child_welfare",
+      "custody"
+    ],
+    "date": "2026-01-08",
+    "sourceUrl": "https://valawyersweekly.com/2025/11/24/virginia-2026-legal-reforms-bar-dues-gal-pay/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "2026-session-family-law-legislative-trifecta",
+    "title": "2026 General Assembly Session: Family Law Among Top Legislative Priorities",
+    "summary": "With the Democratic trifecta under Governor Abigail Spanberger, the 2026 Virginia General Assembly session has placed family law among its top subject matter priorities. Senate Majority Leader Surovell identified family law, criminal law, personal injury, trusts and estates, and commercial litigation as the major areas of focus. Multiple prefiled bills address GAL compensation, child support programs, and protective order reforms.",
+    "category": "news",
+    "tags": [
+      "custody",
+      "child_support",
+      "domestic_violence",
+      "guardianship"
+    ],
+    "date": "2026-01-08",
+    "scope": "statewide",
+    "sourceUrl": "https://lis.virginia.gov/home/20261",
+    "sourceName": "Virginia Legislative Information System"
+  },
+  {
     "id": "protective-order-four-year-duration-2026",
     "title": "Virginia Now Permits Protective Orders Up to Four Years for Repeat Offenders",
     "summary": "Virginia courts may now issue protective orders for up to four years — doubling the previous maximum of two years — if the respondent was subject to a prior protective order within the past 10 years. The law also now addresses military protective orders, making them admissible as evidence in protective order hearings, and requires law enforcement to notify the military if a civil protective order is violated.",
     "category": "virginia_code",
-    "tags": ["domestic_violence", "custody"],
+    "tags": [
+      "domestic_violence",
+      "custody"
+    ],
     "date": "2026-01-01",
     "citation": "Va. Code Ann. § 16.1-279.1",
     "scope": "statewide",
@@ -123,7 +338,11 @@
     "title": "Virginia Courts May Now Use 'Parenting Time' Instead of 'Visitation'",
     "summary": "In any case involving the custody or visitation of a child, Virginia courts may now use the phrase 'parenting time' as a synonym for 'visitation' at their discretion. This terminology change reflects a broader national trend toward language that emphasizes both parents' roles in a child's life rather than framing one parent's time as mere 'visits.'",
     "category": "court_rules",
-    "tags": ["custody", "parenting_time", "coparenting"],
+    "tags": [
+      "custody",
+      "parenting_time",
+      "coparenting"
+    ],
     "date": "2026-01-01",
     "scope": "statewide",
     "sourceUrl": "https://law.lis.virginia.gov/vacodefull/title20/chapter6.1/",
@@ -134,52 +353,15 @@
     "title": "Parents Gain Enforceable Access to Children's Online School and Health Portals",
     "summary": "The General Assembly updated Virginia Code to include a parent's right to access secure websites and online portals where a minor child's school or health records are maintained. Previously, the law only addressed physical records. This change gives parents clearer, enforceable access to stay informed about their children's education and medical care, which is particularly significant in contested custody situations.",
     "category": "virginia_code",
-    "tags": ["custody", "parenting_time", "technology", "child_welfare"],
+    "tags": [
+      "custody",
+      "parenting_time",
+      "technology",
+      "child_welfare"
+    ],
     "date": "2026-01-01",
     "scope": "statewide",
     "sourceUrl": "https://law.lis.virginia.gov/vacodefull/title20/chapter6.1/",
-    "sourceName": "Virginia Law"
-  },
-  {
-    "id": "va-judicial-system-marshall-chatbot-2026",
-    "title": "Virginia Judicial System Launches 'Marshall' AI Chatbot for Self-Help Legal Guidance",
-    "summary": "The Virginia Judicial System launched 'Marshall,' an AI-powered chatbot developed with funding from the Virginia Law Foundation, announced on January 30, 2026. The tool provides self-help guidance for individuals navigating family law matters including custody, visitation, child support, and divorce without an attorney. The chatbot is available through the Virginia Courts self-help website.",
-    "category": "news",
-    "tags": ["technology", "ai_in_law", "custody", "divorce", "child_support"],
-    "date": "2026-01-30",
-    "sourceUrl": "https://selfhelp.vacourts.gov/",
-    "sourceName": "Virginia Judicial System"
-  },
-  {
-    "id": "vsb-family-law-writing-contest-2026",
-    "title": "VSB Family Law Section Hosts Fifth Annual Law Student Writing Competition",
-    "summary": "The Virginia State Bar Family Law Section is sponsoring its fifth annual writing competition open to second and third-year law students at Virginia and Washington, D.C. law schools, with entries due by March 16, 2026. The winning entry will be published in the Virginia Family Law Quarterly. An upcoming Family Law Section event is scheduled in Richmond on April 23, 2026.",
-    "category": "vsb_update",
-    "tags": ["ethics"],
-    "date": "2026-02-10",
-    "sourceUrl": "https://vsb.org/common/Uploaded%20files/sections-conferences/_CurrentNewsletterIssues/fa-current.pdf",
-    "sourceName": "Virginia State Bar — Family Law Quarterly"
-  },
-  {
-    "id": "gal-pay-increase-legislative-push-2026",
-    "title": "Legislators Push for Increased GAL and Court-Appointed Counsel Pay in 2026 Session",
-    "summary": "Senate Majority Leader Scott Surovell (D-Fairfax) highlighted that the pay for court-appointed counsel and guardians ad litem 'should be offensive to everybody' and that the legislature is working to find more funding. Family law is identified as one of the top subject matter areas for the 2026 session, alongside criminal law, personal injury, and trusts and estates. The legislative trifecta under Governor Spanberger provides momentum for these reforms.",
-    "category": "news",
-    "tags": ["guardianship", "fees", "child_welfare", "custody"],
-    "date": "2026-01-08",
-    "sourceUrl": "https://valawyersweekly.com/2025/11/24/virginia-2026-legal-reforms-bar-dues-gal-pay/",
-    "sourceName": "Virginia Lawyers Weekly"
-  },
-  {
-    "id": "child-support-income-cap-42500-impact-2026",
-    "title": "Impact of SB 805: Child Support Guidelines Now Cover Incomes Up to $42,500/Month",
-    "summary": "Senate Bill 805, effective July 1, 2025, raised the combined monthly gross income cap for Virginia's child support guidelines from $35,000 to $42,500 and increased guideline amounts across all income levels for the first time since 2014. For incomes above the new cap, courts start at the $42,500 guideline amount and apply a percentage (2.6%–5.0% depending on number of children) to excess income. The old $250 custodial parent medical deductible has also been eliminated in newer orders.",
-    "category": "virginia_code",
-    "tags": ["child_support", "financial"],
-    "date": "2026-03-01",
-    "citation": "Va. Code Ann. § 20-108.2",
-    "scope": "statewide",
-    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6/section20-108.2/",
     "sourceName": "Virginia Law"
   },
   {
@@ -187,7 +369,11 @@
     "title": "Virginia Bars Parental Rights for Those Convicted of Sexual Offenses Against Children",
     "summary": "Under updated Virginia law, individuals convicted of rape, carnal knowledge, or incest — or found liable in civil proceedings — cannot establish a parent-child relationship with a child conceived from such acts. This measure protects children and prevents perpetrators from gaining legal standing such as visitation or custody rights, reinforcing Virginia's commitment to child safety in family law proceedings.",
     "category": "virginia_code",
-    "tags": ["custody", "child_welfare", "domestic_violence"],
+    "tags": [
+      "custody",
+      "child_welfare",
+      "domestic_violence"
+    ],
     "date": "2026-01-01",
     "scope": "statewide",
     "sourceUrl": "https://law.lis.virginia.gov/vacodefull/title20/chapter6.1/",
@@ -198,98 +384,91 @@
     "title": "Kevin Duffan Elected to Virginia Court of Appeals; Fulton Elevated to Supreme Court",
     "summary": "Effective January 1, 2026, Junius P. Fulton III was elevated to the Supreme Court of Virginia, and Kevin Duffan was elected to fill a seat on the Virginia Court of Appeals. These judicial changes affect the composition of the courts that hear domestic relations appeals. Practitioners should be aware of the new judicial perspectives that may influence family law appellate decisions.",
     "category": "news",
-    "tags": ["custody", "divorce"],
+    "tags": [
+      "custody",
+      "divorce"
+    ],
     "date": "2026-01-01",
     "sourceUrl": "https://www.vacourts.gov/courts/cav/home",
     "sourceName": "Virginia Court of Appeals"
   },
   {
-    "id": "vacourts-best-interests-factors-updated-2026",
-    "title": "Virginia Code § 20-124.3 Best Interest Factors Updated as of March 2026",
-    "summary": "As of March 12, 2026, Virginia's best interest factors for custody and visitation determinations under § 20-124.3 continue to require courts to consider the child's needs, each parent's propensity to support the child's relationship with the other parent, the child's reasonable preference, and any history of family or sexual abuse within the prior 10 years. Practitioners should review the current statutory text to ensure compliance with the latest version.",
-    "category": "virginia_code",
-    "tags": ["custody", "child_welfare", "domestic_violence", "parenting_time"],
-    "date": "2026-03-12",
-    "citation": "Va. Code Ann. § 20-124.3",
-    "scope": "statewide",
-    "sourceUrl": "https://law.lis.virginia.gov/vacode/title20/chapter6.1/section20-124.3/",
-    "sourceName": "Virginia Law"
-  },
-  {
-    "id": "va-access-to-justice-listening-tour-2026",
-    "title": "Virginia Access to Justice Commission Hosts Statewide Listening Tour",
-    "summary": "Virginia's Access to Justice Commission is hosting a statewide listening tour asking community members to share their experiences finding legal help, including challenges appearing in Virginia courts for family law matters. The initiative aims to identify barriers to justice and develop solutions for making legal help more available, particularly for self-represented litigants in custody, support, and divorce proceedings.",
-    "category": "trend",
-    "tags": ["custody", "divorce", "child_support"],
-    "date": "2026-02-15",
-    "scope": "statewide",
-    "sourceUrl": "https://valawyersweekly.com/2025/06/20/virginia-access-to-justice-hearing-legal-services/",
-    "sourceName": "Virginia Lawyers Weekly"
-  },
-  {
-    "id": "vsb-district-committee-volunteers-2026",
-    "title": "VSB Seeks Volunteer Attorneys and Lay Members for Disciplinary Committees Starting July 2026",
-    "summary": "The Virginia State Bar is seeking volunteer attorneys and lay members to serve on its 17 Local Disciplinary District Committees beginning July 1, 2026. These committees review complaints and investigations against attorneys, including family law practitioners, and determine whether there is sufficient evidence of professional conduct violations. Two attorney and one lay member volunteers are also needed for the Disciplinary Board.",
-    "category": "vsb_update",
-    "tags": ["disciplinary", "ethics"],
-    "date": "2026-03-01",
-    "sourceUrl": "https://vsb.org/Site/Site/news/news-items/20251028-district-committees.aspx",
-    "sourceName": "Virginia State Bar"
-  },
-  {
-    "id": "va-lawyers-hall-of-fame-2026",
-    "title": "Virginia Lawyers Hall of Fame Event Set for April 30, 2026",
-    "summary": "Virginia Lawyers Weekly will host the Virginia Lawyers Hall of Fame event on April 30, 2026, honoring members of Virginia's legal community who have been practicing for 30 years or more. A separate May 27, 2026 event will feature a panel discussing 'AI Governance and Regulatory Readiness for Law Firms,' reflecting the growing intersection of technology and legal practice.",
-    "category": "news",
-    "tags": ["ethics", "ai_in_law", "technology"],
-    "date": "2026-03-25",
-    "sourceUrl": "https://valawyersweekly.com/",
-    "sourceName": "Virginia Lawyers Weekly"
-  },
-  {
-    "id": "lee-v-virginia-state-bar-scv-2026",
-    "title": "Supreme Court of Virginia Issues Opinion in Lee v. Virginia State Bar",
-    "summary": "On March 19, 2026 (Docket No. 250724), the Supreme Court of Virginia issued its opinion in Lee v. Virginia State Bar. While the specific details of the ruling are significant for the attorney discipline framework, the case underscores the Supreme Court's active oversight of attorney conduct through the VSB disciplinary system, which directly impacts family law practitioners subject to professional conduct rules.",
+    "id": "campbell-v-nelson-county-dss-cav-2025",
+    "title": "Parental Rights Terminated Because of Mother's Abuse — Campbell v. Nelson County DSS",
+    "summary": "The Virginia Court of Appeals affirmed the termination of a mother's parental rights after the record showed her children endured physical, verbal, and emotional abuse in her care but had an improved standard of living in foster care. During two years in foster care, the mother made no progress toward reunification, failed to take accountability in counseling, denied past abuse, and displayed disengaged behavior during supervised visits. The court also found two of the mother's assignments of error waived because she filed the hearing transcript one day after the 60-day deadline, rendering it not part of the record on appeal. Under Va. Code § 16.1-283(C), the court held the Department met its burden by clear and convincing evidence that termination was in the children's best interest and that the mother had not remedied the conditions leading to foster care.",
     "category": "case_law",
-    "tags": ["disciplinary", "ethics"],
-    "date": "2026-03-19",
-    "citation": "Lee v. Virginia State Bar, No. 250724 (Va. 2026)",
-    "court": "Supreme Court of Virginia",
-    "sourceUrl": "https://law.justia.com/cases/virginia/supreme-court/",
-    "sourceName": "Justia — Supreme Court of Virginia"
-  },
-  {
-    "id": "no-fault-divorce-separation-intent-2026",
-    "title": "Virginia Law: Continuous Intent to Separate Not Required for No-Fault Divorce",
-    "summary": "Virginia case law confirms that a couple seeking a no-fault divorce under Va. Code § 20-91(A)(9) is not required to show that either party continuously maintained an intent to separate permanently throughout the statutory period. The intent requirement is satisfied if a party has the intent to separate permanently at the outset of the statutory separation period. This precedent continues to guide practitioners and courts in 2026.",
-    "category": "case_law",
-    "tags": ["divorce"],
-    "date": "2026-03-01",
-    "citation": "Va. Code Ann. § 20-91(A)(9)",
+    "tags": [
+      "custody",
+      "child_welfare",
+      "domestic_violence"
+    ],
+    "date": "2025-12-08",
+    "citation": "Campbell v. Nelson County Dep't of Social Services, Record No. 0904-25-3 (Va. Ct. App. Nov. 25, 2025) (unpublished), VLW 025-7-338",
     "court": "Virginia Court of Appeals",
-    "sourceUrl": "https://valawyersweekly.com/2023/08/28/continuous-intent-to-separate-not-required/",
+    "sourceUrl": "https://valawyersweekly.com/2025/12/08/parent-and-child-parental-rights-terminated-because-of-mothers-abuse/",
     "sourceName": "Virginia Lawyers Weekly"
   },
   {
-    "id": "2026-session-family-law-legislative-trifecta",
-    "title": "2026 General Assembly Session: Family Law Among Top Legislative Priorities",
-    "summary": "With the Democratic trifecta under Governor Abigail Spanberger, the 2026 Virginia General Assembly session has placed family law among its top subject matter priorities. Senate Majority Leader Surovell identified family law, criminal law, personal injury, trusts and estates, and commercial litigation as the major areas of focus. Multiple prefiled bills address GAL compensation, child support programs, and protective order reforms.",
-    "category": "news",
-    "tags": ["custody", "child_support", "domestic_violence", "guardianship"],
-    "date": "2026-01-08",
-    "scope": "statewide",
-    "sourceUrl": "https://lis.virginia.gov/home/20261",
-    "sourceName": "Virginia Legislative Information System"
+    "id": "foster-v-foster-cav-2025",
+    "title": "Circuit Court Properly Corrected Final Divorce Decree Nunc Pro Tunc — Foster v. Foster",
+    "summary": "The Virginia Court of Appeals affirmed a circuit court's nunc pro tunc amendment to a final divorce decree to include an explicit statement that spousal support would not be deductible by husband or taxable to wife. The husband argued the modification was substantive and barred by Rule 1:1, but the Court disagreed. The 2019 hearing transcript showed the circuit court had considered and stated on the record how spousal support would be taxed, and that finding was incorporated by reference into the original final decree even though it was not explicitly stated in the decree's body. The circuit court's amendment under Va. Code § 8.01-428(B) merely corrected a clerical omission to make the record 'speak the truth' about what actually took place at the hearing.",
+    "category": "case_law",
+    "tags": [
+      "divorce",
+      "spousal_support"
+    ],
+    "date": "2025-11-30",
+    "citation": "Foster v. Foster, Record No. 1366-24-4 (Va. Ct. App. Nov. 18, 2025) (Malveaux, J.) (unpublished), VLW 025-7-335",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://valawyersweekly.com/2025/11/30/domestic-relations-circuit-court-properly-corrected-final-decree-nunc-pro-tunc/",
+    "sourceName": "Virginia Lawyers Weekly"
   },
   {
-    "id": "hb5-2026-session-family-law-bill",
-    "title": "HB 5 Filed in 2026 Regular Session — Prefiled Family-Related Legislation",
-    "summary": "House Bill 5 is among the earliest bills prefiled for Virginia's 2026 Regular Session. The 2026 session has seen significant legislative activity in domestic relations matters, with multiple bills filed addressing child support, custody, protective orders, and court-appointed counsel compensation. Practitioners should monitor the Virginia LIS for bill tracking and hearing schedules.",
-    "category": "virginia_code",
-    "tags": ["custody", "child_support"],
-    "date": "2026-01-10",
-    "scope": "statewide",
-    "sourceUrl": "https://lis.virginia.gov/bill-details/20261/HB5/text/HB5",
-    "sourceName": "Virginia Legislative Information System"
+    "id": "teel-v-teel-cav-2025",
+    "title": "Wife Who Abandoned Marriage Not Entitled to Husband's Inheritance — Teel v. Teel",
+    "summary": "The Virginia Court of Appeals affirmed a circuit court finding that a wife abandoned her marriage, barring her from claiming an elective share of her deceased husband's augmented estate under Va. Code § 64.2-308.14(E). The couple married in 1988, separated around 2016, and never divorced. After separating, the wife moved out, began a long-term romantic relationship with another man within months, had minimal contact with her husband, played only a minor role in caring for him during his terminal illness, and promoted her new relationship on social media. The husband died testate in 2022, leaving his entire estate to his brother and expressly stating in his will that his wife had deserted and abandoned him. The Court held that the continued comingling of finances and lack of divorce were not dispositive, as the statute applies only where there has been no divorce, and lingering financial ties do not preclude a finding of abandonment when all other marital indicia have collapsed.",
+    "category": "case_law",
+    "tags": [
+      "divorce",
+      "equitable_distribution",
+      "spousal_support"
+    ],
+    "date": "2025-11-30",
+    "citation": "Teel v. Teel, Record No. 0053-25-3 (Va. Ct. App. Nov. 18, 2025) (Friedman, J.), VLW 025-7-329",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://valawyersweekly.com/2025/11/30/domestic-relations-court-finds-that-wife-abandoned-the-marriage/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "salkay-v-charlottesville-dss-cav-2025",
+    "title": "Mother's Lack of Improvement Results in Termination of Parental Rights — Salkay v. Charlottesville DSS",
+    "summary": "The Virginia Court of Appeals affirmed the termination of a mother's parental rights and approved the foster care goal of adoption where the mother failed to substantially remedy the conditions that led to her child's placement in foster care. Those conditions included unstable housing, substance abuse, lack of childcare and supervision, and an unsafe home environment. The mother was unemployed and financially dependent on her father, a registered sex offender, and her husband, who had pending felony child endangerment charges. She provided no evidence of stable housing, refused to let the Department view her apartment, and her own testimony conceded the home was not safe for the child's return. She also failed to complete substance abuse treatment, insisting marijuana use was her right and that she had proven sobriety despite not complying with alcohol monitoring.",
+    "category": "case_law",
+    "tags": [
+      "custody",
+      "child_welfare",
+      "domestic_violence"
+    ],
+    "date": "2025-11-23",
+    "citation": "Salkay v. City of Charlottesville Dep't of Social Services, Record No. 0880-23-2 (Va. Ct. App. July 22, 2025) (Frucci, J.) (unpublished), VLW 025-7-193",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://valawyersweekly.com/2025/11/23/parent-and-child-mothers-lack-of-improvement-results-in-termination-of-her-parental-rights/",
+    "sourceName": "Virginia Lawyers Weekly"
+  },
+  {
+    "id": "gaskins-iii-v-gaskins-cav-2025",
+    "title": "Court Allows Relocation of Minor Child to Florida — Gaskins III v. Gaskins",
+    "summary": "The Virginia Court of Appeals affirmed a circuit court order granting the mother sole physical custody and permitting her to relocate with the parties' minor child to Florida. The father argued the court failed to treat the case as a relocation dispute requiring proof that the move independently benefited the child and would not disrupt his relationship with her. The Court held that the ultimate question in relocation cases remains the child's best interests under the Va. Code § 20-124.3 factors. The circuit court found the child had thrived in Florida — repairing her relationship with her mother, excelling in school, making friends, and building a close bond with her sister — while the father maintained a strong relationship through visitation. The court found no error in considering the improved mother-child relationship as a benefit, even though the relationship had initially declined after the move.",
+    "category": "case_law",
+    "tags": [
+      "custody",
+      "relocation",
+      "parenting_time"
+    ],
+    "date": "2025-11-16",
+    "citation": "Gaskins III v. Gaskins, Record No. 1368-24-1 (Va. Ct. App. Nov. 5, 2025) (per curiam) (unpublished), VLW 025-7-320",
+    "court": "Virginia Court of Appeals",
+    "sourceUrl": "https://valawyersweekly.com/2025/11/16/parent-and-child-court-allows-relocation-of-minor-child-to-florida/",
+    "sourceName": "Virginia Lawyers Weekly"
   }
 ]

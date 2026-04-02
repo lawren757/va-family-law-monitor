@@ -34,6 +34,7 @@ export interface UpdatesResponse {
   totalPages: number;
   categories: Record<string, number>;
   tags: Record<string, number>;
+  lastUpdated: string | null;
 }
 
 export const CATEGORY_META: Record<
@@ -43,67 +44,67 @@ export const CATEGORY_META: Record<
   all: {
     label: "All Updates",
     icon: "LayoutList",
-    color: "bg-gray-600 text-white",
+    color: "bg-[#4b5563] text-white",
     darkColor: "dark:bg-gray-800/40 dark:text-gray-300",
   },
   virginia_code: {
     label: "Virginia Code",
     icon: "Scale",
-    color: "bg-blue-600 text-white",
+    color: "bg-[#1d4ed8] text-white",
     darkColor: "dark:bg-blue-900/40 dark:text-blue-300",
   },
   case_law: {
     label: "Case Law",
     icon: "BookOpen",
-    color: "bg-amber-600 text-white",
+    color: "bg-[#92400e] text-white",
     darkColor: "dark:bg-amber-900/40 dark:text-amber-300",
   },
   supreme_court_us: {
     label: "SCOTUS",
     icon: "Landmark",
-    color: "bg-purple-600 text-white",
+    color: "bg-[#7e22ce] text-white",
     darkColor: "dark:bg-purple-900/40 dark:text-purple-300",
   },
   court_rules: {
     label: "Court Rules",
     icon: "Gavel",
-    color: "bg-slate-600 text-white",
+    color: "bg-[#475569] text-white",
     darkColor: "dark:bg-slate-800/40 dark:text-slate-300",
   },
   ethics_opinion: {
     label: "Ethics Opinion",
     icon: "Shield",
-    color: "bg-emerald-600 text-white",
+    color: "bg-[#065f46] text-white",
     darkColor: "dark:bg-emerald-900/40 dark:text-emerald-300",
   },
   vsb_update: {
     label: "VA State Bar",
     icon: "Building2",
-    color: "bg-indigo-600 text-white",
+    color: "bg-[#4338ca] text-white",
     darkColor: "dark:bg-indigo-900/40 dark:text-indigo-300",
   },
   attorney_discipline: {
     label: "Attorney Discipline",
     icon: "AlertTriangle",
-    color: "bg-red-600 text-white",
+    color: "bg-[#b91c1c] text-white",
     darkColor: "dark:bg-red-900/40 dark:text-red-300",
   },
   news: {
     label: "News",
     icon: "Newspaper",
-    color: "bg-sky-600 text-white",
+    color: "bg-[#0369a1] text-white",
     darkColor: "dark:bg-sky-900/40 dark:text-sky-300",
   },
   study: {
     label: "Study",
     icon: "BarChart3",
-    color: "bg-teal-600 text-white",
+    color: "bg-[#115e59] text-white",
     darkColor: "dark:bg-teal-900/40 dark:text-teal-300",
   },
   trend: {
     label: "Trend",
     icon: "TrendingUp",
-    color: "bg-orange-600 text-white",
+    color: "bg-[#9a3412] text-white",
     darkColor: "dark:bg-orange-900/40 dark:text-orange-300",
   },
 };
