@@ -102,10 +102,19 @@ async function writeJsonItems(items: UpdateItem[]): Promise<void> {
 
 // ─── Postgres helpers ───────────────────────────────────────────────────────
 
+let _pool: import("@neondatabase/serverless").Pool | undefined;
+
 async function getPostgresClient() {
-  const { Pool } = await import("@neondatabase/serverless");
-  const pool = new Pool({ connectionString: process.env.POSTGRES_URL });
-  return pool;
+  if (!_pool) {
+    const { Pool, neonConfig } = await import("@neondatabase/serverless");
+    // Node.js < 22 doesn't have a built-in WebSocket; provide one via `ws`
+    if (typeof globalThis.WebSocket === "undefined") {
+      const ws = (await import("ws")).default;
+      neonConfig.webSocketConstructor = ws;
+    }
+    _pool = new Pool({ connectionString: process.env.POSTGRES_URL });
+  }
+  return _pool;
 }
 
 // ─── Public API ─────────────────────────────────────────────────────────────
@@ -243,26 +252,34 @@ async function getUpdatesJson(options: {
 
 export async function insertUpdate(item: InsertItem): Promise<number> {
   if (usePostgres) {
-    const { neon } = await import("@neondatabase/serverless");
-    const sql = neon(process.env.POSTGRES_URL!);
+    const client = await getPostgresClient();
     const searchTags = [...(item.tags || []), item.category, item.court || ""]
       .filter(Boolean)
       .join(" ");
 
     const tagsArray = `{${(item.tags || []).join(",")}}`;
-    const rows = await sql`
-      INSERT INTO updates
+    const { rows } = await client.query(
+      `INSERT INTO updates
         (title, summary, date, category, tags, source_name, source_url,
          citation, court, blog_credit, search_tags, pinned)
-      VALUES
-        (${item.title}, ${item.summary || ""}, ${item.date || new Date().toISOString().split("T")[0]},
-         ${item.category}, ${tagsArray}::text[],
-         ${item.source_name || ""}, ${item.source_url || ""},
-         ${item.citation || null}, ${item.court || null},
-         ${item.blog_credit || null}, ${searchTags}, ${item.pinned || false})
-      RETURNING id
-    `;
-    return (rows[0] as { id: number }).id;
+       VALUES ($1, $2, $3, $4, $5::text[], $6, $7, $8, $9, $10, $11, $12)
+       RETURNING id`,
+      [
+        item.title,
+        item.summary || "",
+        item.date || new Date().toISOString().split("T")[0],
+        item.category,
+        tagsArray,
+        item.source_name || "",
+        item.source_url || "",
+        item.citation || null,
+        item.court || null,
+        item.blog_credit || null,
+        searchTags,
+        item.pinned || false,
+      ]
+    );
+    return rows[0].id;
   }
 
   // JSON fallback
@@ -289,8 +306,7 @@ export async function insertUpdate(item: InsertItem): Promise<number> {
 
 export async function getExistingUrls(urls: string[]): Promise<Set<string>> {
   if (usePostgres) {
-    const { Pool } = await import("@neondatabase/serverless");
-    const client = new Pool({ connectionString: process.env.POSTGRES_URL });
+    const client = await getPostgresClient();
     const urlsArray = `{${urls.map((u) => `"${u.replace(/"/g, '\\"')}"`).join(",")}}`;
     const { rows } = await client.query(
       `SELECT source_url FROM updates WHERE source_url = ANY($1::text[])`,
