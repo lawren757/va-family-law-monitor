@@ -98,7 +98,6 @@ export default function Dashboard() {
             onClick={() => setSidebarOpen(!sidebarOpen)}
             aria-label="Toggle sidebar"
             className="md:hidden p-1.5 rounded-md hover:bg-muted"
-            aria-label="Toggle sidebar"
           >
             <PanelLeft className="w-4 h-4" />
           </button>
