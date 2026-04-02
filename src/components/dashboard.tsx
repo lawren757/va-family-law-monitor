@@ -337,6 +337,12 @@ export default function Dashboard() {
         <p className="text-[13px] text-muted-foreground mt-1">
           Code updates, case law, ethics opinions, bar news, and practice trends
         </p>
+        {!isLoading && data && data.items.length > 0 && (
+          <p className="text-[11px] text-muted-foreground/70 mt-1 flex items-center gap-1">
+            <Calendar className="w-3 h-3" />
+            Last updated {formatDate(data.items.reduce((latest, item) => item.date > latest ? item.date : latest, data.items[0].date))}
+          </p>
+        )}
       </div>
 
       {/* Stats Row */}

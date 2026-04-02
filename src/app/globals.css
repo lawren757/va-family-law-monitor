@@ -31,14 +31,14 @@ html {
   --popover: #ffffff;
   --popover-foreground: #1a1a2e;
 
-  /* Sidebar - dark navy always */
-  --sidebar: #1a2236;
-  --sidebar-foreground: #e2e8f0;
-  --sidebar-border: #2d3a52;
+  /* Sidebar - light mode */
+  --sidebar: #f0f4f8;
+  --sidebar-foreground: #1a1a2e;
+  --sidebar-border: #e2e8f0;
   --sidebar-primary: #0066CC;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2d3a52;
-  --sidebar-accent-foreground: #e2e8f0;
+  --sidebar-accent: #e2e8f0;
+  --sidebar-accent-foreground: #1a1a2e;
   --sidebar-ring: #0066CC;
 }
 

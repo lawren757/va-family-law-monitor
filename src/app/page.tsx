@@ -10,7 +10,7 @@ export default function Home() {
       <AppSidebar />
       <SidebarInset>
         <header className="flex items-center gap-2 px-4 py-2 border-b border-border/50">
-          <SidebarTrigger className="md:hidden" />
+          <SidebarTrigger />
           <div className="flex-1" />
           <ThemeToggle />
         </header>
