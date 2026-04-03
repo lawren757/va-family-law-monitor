@@ -475,23 +475,23 @@ export function Dashboard({ items, fetchedAt, activeCategory, onCategoryChange }
   return (
     <div className="p-4 md:p-6 max-w-[1200px] mx-auto space-y-5">
       {/* Header */}
-      <div className="flex items-start justify-between gap-4">
-        <div>
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
+        <div className="min-w-0">
           <Image
             src="/logo-wordmark.png"
             alt="VFL Toolkit"
             width={160}
             height={32}
-            className="h-8 w-auto object-contain object-left"
+            className="h-7 sm:h-8 w-auto object-contain object-left"
             priority
           />
-          <p className="text-[13px] text-muted-foreground mt-0.5">
+          <p className="text-[12px] sm:text-[13px] text-muted-foreground mt-0.5">
             Code updates, case law, ethics opinions, bar news, and practice trends
           </p>
         </div>
         {fetchedAt && (
           <div
-            className="flex items-center gap-1.5 text-[11px] text-muted-foreground/70 whitespace-nowrap mt-1.5 shrink-0"
+            className="flex items-center gap-1.5 text-[11px] text-muted-foreground/70 whitespace-nowrap shrink-0"
             data-testid="text-last-updated"
           >
             <Clock className="w-3 h-3" />

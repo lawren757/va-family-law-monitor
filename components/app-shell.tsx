@@ -6,7 +6,6 @@ import { Sidebar } from "./sidebar";
 import { ThemeToggle } from "./theme-toggle";
 import { Dashboard } from "./dashboard";
 import type { UpdateItem } from "@/lib/types";
-import Image from "next/image";
 
 interface AppShellProps {
   items: UpdateItem[];
@@ -19,9 +18,9 @@ export function AppShell({ items, fetchedAt, initialTheme }: AppShellProps) {
 
   return (
     <ThemeProvider initialTheme={initialTheme}>
-      <div className="flex h-screen w-full overflow-hidden">
-        {/* Sidebar — desktop */}
-        <div className="hidden md:flex">
+      <div className="flex h-screen w-full overflow-hidden bg-background">
+        {/* Sidebar renders itself: desktop = inline collapsible, mobile/tablet = returns just the trigger button (rendered in header below) */}
+        <div className="hidden lg:flex">
           <Sidebar
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
@@ -31,25 +30,15 @@ export function AppShell({ items, fetchedAt, initialTheme }: AppShellProps) {
         {/* Main area */}
         <div className="flex flex-col flex-1 min-w-0">
           {/* Top header bar */}
-          <header className="flex items-center gap-2 px-4 py-2 border-b border-border bg-background/80 backdrop-blur-sm shrink-0">
-            {/* Mobile sidebar trigger */}
-            <div className="md:hidden">
+          <header className="flex items-center gap-3 px-4 py-2 border-b border-border bg-background/80 backdrop-blur-sm shrink-0">
+            {/* Mobile/tablet: hamburger + drawer from Sidebar */}
+            <div className="lg:hidden">
               <Sidebar
                 activeCategory={activeCategory}
                 onCategoryChange={setActiveCategory}
               />
             </div>
-            {/* Logo on mobile */}
-            <div className="md:hidden flex-1 flex items-center">
-              <Image
-                src="/logo-wordmark.png"
-                alt="VFL Toolkit"
-                width={100}
-                height={24}
-                className="h-6 w-auto object-contain object-left"
-              />
-            </div>
-            <div className="hidden md:flex flex-1" />
+            <div className="flex-1" />
             <ThemeToggle />
           </header>
 
