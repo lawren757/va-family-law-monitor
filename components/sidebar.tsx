@@ -184,16 +184,7 @@ export function Sidebar({ activeCategory, onCategoryChange }: SidebarProps) {
       ) : (
         /* Collapsed: icon-only */
         <nav className="flex flex-col h-full">
-          <div className="px-3 pt-4 pb-3 border-b border-sidebar-border flex items-center justify-center">
-            <Image
-              src="/logo-wordmark.png"
-              alt="VFL Toolkit"
-              width={28}
-              height={28}
-              className="h-7 w-7 object-contain"
-              priority
-            />
-          </div>
+          <div className="px-3 pt-4 pb-3 border-b border-sidebar-border" />
           <ul className="flex-1 overflow-y-auto py-2 px-2 space-y-0.5">
             {categories.map((cat) => {
               const Icon = cat.icon;
