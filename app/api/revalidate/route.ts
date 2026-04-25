@@ -14,6 +14,8 @@ export async function GET(request: Request) {
 
   // Revalidate the home page — forces fresh fetch from Google Sheets
   revalidatePath("/");
+  revalidatePath("/feed.xml");
+  revalidatePath("/api/updates");
 
   return NextResponse.json({
     revalidated: true,
